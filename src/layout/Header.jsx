@@ -15,6 +15,10 @@ const nav = [
     name: '关于',
     path: '/about',
   },
+  {
+    name: 'redux',
+    path: '/redux',
+  },
 ];
 
 const Header = () => {
