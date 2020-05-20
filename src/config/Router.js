@@ -1,8 +1,5 @@
 import React from 'react';
-import About from '../pages/About';
-import Help from '../pages/Help';
-import Home from '../pages/Home';
-import Redux from '../pages/Redux';
+import menu from './menu.config';
 import Layout from '../layout/Layout';
 import { Provider } from 'react-redux';
 import store from '../store';
@@ -10,25 +7,22 @@ import store from '../store';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 export default function App() {
+  const menu0 = menu[0];
   return (
     <Provider store={store}>
       <Router>
-        <Redirect to="/home" from="/" />
+        <Redirect to={menu0.path} from="/" />
         <Route path="/">
           <Layout>
             <Switch>
-              <Route path="/home">
-                <Home />
-              </Route>
-              <Route path="/help">
-                <Help />
-              </Route>
-              <Route path="/about">
-                <About />
-              </Route>
-              <Route path="/redux">
-                <Redux />
-              </Route>
+              {menu.map(item => {
+                const Comp = item.component;
+                return (
+                  <Route path={item.path} key={item.path}>
+                    <Comp />
+                  </Route>
+                );
+              })}
             </Switch>
           </Layout>
         </Route>

@@ -1,32 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import menu from '../config/menu.config';
 import styles from './Header.less';
 
-const nav = [
-  {
-    name: '首页',
-    path: '/home',
-  },
-  {
-    name: '帮助',
-    path: '/help',
-  },
-  {
-    name: '关于',
-    path: '/about',
-  },
-  {
-    name: 'redux',
-    path: '/redux',
-  },
-];
+const nav = menu;
 
 const Header = () => {
+  const [activeItem, setActiveItem] = useState(menu[0].path);
+  useEffect(() => {
+    if (window.location.pathname === '/') {
+      setActiveItem(menu[0].path);
+    } else {
+      setActiveItem(window.location.pathname || menu[0].path);
+    }
+  }, []);
   return (
     <div className={styles.wrap}>
       {nav.map(el => (
-        <div className={styles.item} key={el.path}>
-          <Link to={el.path}>{el.name}</Link>
+        <div
+          className={`${styles.item} ${activeItem === el.path ? styles.active : ''}`}
+          key={el.path}
+        >
+          <Link to={el.path} onClick={() => setActiveItem(el.path)}>{el.name}</Link>
         </div>
       ))}
     </div>

@@ -1,5 +1,36 @@
+@height: 48px;
 .wrap {
   display: flex;
+  background: #111b26;
+  height: @height;
+  color: #fff;
+  overflow-x: scroll;
+  overflow-y: auto;
+}
+
+.item {
+  box-sizing: border-box;
+  height: 100%;
+  min-width: 100px;
+  text-align: center;
+  transition: all .25s;
+  :global {
+    a {
+      height: 100%;
+      line-height: @height;
+      padding: 0 15px;
+      display: block;
+    }
+  }
+  &:hover {
+    background-color: rgb(255, 186, 82);
+    color: #333;
+  }
+}
+
+.active {
+  background-color: rgb(255, 186, 82);
+  color: #333;
 }
 
 .item + .item {

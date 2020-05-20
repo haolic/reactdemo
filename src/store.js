@@ -10,7 +10,6 @@ const reduxActionMap = {
 };
 
 const reducer = (state = {}, action) => {
-  console.log(action)
   return reduxActionMap[action.type]
     ? reduxActionMap[action.type](state, action)
     : {
