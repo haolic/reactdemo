@@ -4,8 +4,14 @@ import Home from '../pages/Home';
 import Redux from '../pages/Redux';
 import Onepx from '../pages/Onepx';
 import Progress from '../pages/Progress';
+import Debounce from '../pages/Debounce';
 
 export default [
+  {
+    name: '防抖',
+    path: '/debounce',
+    component: Debounce
+  },
   {
     name: '进度条',
     path: '/progress',
