@@ -5,8 +5,14 @@ import Redux from '../pages/Redux';
 import Onepx from '../pages/Onepx';
 import Progress from '../pages/Progress';
 import Debounce from '../pages/Debounce';
+import Worker from '../pages/Worker';
 
 export default [
+  {
+    name: 'web worker',
+    path: '/worker',
+    component: Worker
+  },
   {
     name: '防抖',
     path: '/debounce',
