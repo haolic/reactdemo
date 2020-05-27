@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default () => {
+const WEBWorker = () => {
   const [count, setCount] = useState(0);
   useEffect(() => {
     const worker = new Worker('/worker.js');
@@ -32,3 +32,6 @@ export default () => {
     </div>
   );
 };
+
+WEBWorker.label = 'WEB Worker'
+export default WEBWorker;

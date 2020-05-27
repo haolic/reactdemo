@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-export default () => {
+const Debounce = () => {
   const [value, setValue] = useState('');
   const [text, setText] = useState('');
   const tid = useRef();
@@ -37,3 +37,7 @@ export default () => {
     </div>
   );
 };
+
+Debounce.label = '防抖'
+
+export default Debounce;

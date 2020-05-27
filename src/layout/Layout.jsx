@@ -4,10 +4,10 @@ import Content from './Content';
 
 const Layout = props => {
   return (
-    <div>
+    <>
       <Header></Header>
       <Content>{props.children}</Content>
-    </div>
+    </>
   );
 };
 

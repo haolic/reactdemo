@@ -1,51 +1,33 @@
-import About from '../pages/About';
-import Help from '../pages/Help';
-import Home from '../pages/Home';
-import Redux from '../pages/Redux';
-import Onepx from '../pages/Onepx';
-import Progress from '../pages/Progress';
-import Debounce from '../pages/Debounce';
-import Worker from '../pages/Worker';
+import React from 'react';
 
-export default [
-  {
-    name: 'web worker',
-    path: '/worker',
-    component: Worker
-  },
-  {
-    name: '防抖',
-    path: '/debounce',
-    component: Debounce
-  },
-  {
-    name: '进度条',
-    path: '/progress',
-    component: Progress,
-  },
-  {
-    name: '1px问题',
-    path: '/1px',
-    component: Onepx,
-  },
-  {
-    name: '首页',
-    path: '/home',
-    component: Home,
-  },
-  {
-    name: '帮助',
-    path: '/help',
-    component: Help,
-  },
-  {
-    name: '关于',
-    path: '/about',
-    component: About,
-  },
-  {
-    name: 'redux',
-    path: '/redux',
-    component: Redux,
-  },
-];
+const context = require.context('../pages', true, /\.(jsx)$/);
+const allKeys = context.keys();
+const componentList = [];
+allKeys.forEach(key => {
+  const comp = context(key);
+  const resPath = context.resolve(key);
+  componentList.push({
+    name: comp.default && (comp.default.label || comp.default.name || '未命名'),
+    path: key.split('.')[1],
+    component:
+      comp.default ||
+      (() => (
+        <div style={{ fontSize: 20, padding: 30 }}>
+          找不到页面, 请检查路径
+          <code
+            style={{
+              background: 'rgba(0, 0, 0, 0.1)',
+              marginLeft: 5,
+              padding: '0 3px',
+              border: '1px solid rgba(0, 0, 0, 0.2)',
+              borderRadius: 4,
+            }}
+          >
+            {resPath.substr(2)}
+          </code>
+        </div>
+      )),
+  });
+});
+
+export default componentList;

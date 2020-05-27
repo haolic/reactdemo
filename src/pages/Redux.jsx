@@ -18,6 +18,7 @@ const ReduxPage = props => {
   );
 };
 
+ReduxPage.label = 'redux'
 export default connect(state => {
   return {
     count: state.count,

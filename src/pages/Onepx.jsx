@@ -12,4 +12,6 @@ const OnePx = () => {
   );
 };
 
+OnePx.label = '移动端1px问题'
+
 export default OnePx;
