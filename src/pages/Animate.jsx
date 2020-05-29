@@ -13,7 +13,7 @@ const 动画 = () => {
     const go = () => {
       if (ref.current) {
         let left = parseFloat(ref.current.style.left);
-        if (left >= 500) { 
+        if (left >= 500) {
           flag = true;
         }
         if (left <= 0) {
