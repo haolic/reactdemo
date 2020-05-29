@@ -55,4 +55,6 @@ const Lazyload = () => {
   );
 };
 
+Lazyload.label = '懒加载';
+
 export default Lazyload;
