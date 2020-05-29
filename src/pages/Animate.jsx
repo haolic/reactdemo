@@ -6,6 +6,7 @@ const 动画 = () => {
   const ref = useRef();
   const ref2 = useRef();
   const tid = useRef();
+  const animationId = useRef();
   useEffect(() => {
     let flag = false;
     let flag2 = false;
@@ -24,7 +25,7 @@ const 动画 = () => {
           left = left + SPEED;
         }
         ref.current.style.left = left + 'px';
-        window.requestAnimationFrame(go);
+        animationId.current = window.requestAnimationFrame(go);
       }
     };
     const go2 = () => {
@@ -53,7 +54,7 @@ const 动画 = () => {
     };
   }, []);
   return (
-    <>
+    <div>
       <div
         ref={ref2}
         style={{
@@ -86,7 +87,13 @@ const 动画 = () => {
           Frame
         </div>
       </div>
-    </>
+      <div>
+        <button onClick={() => {
+          window.cancelAnimationFrame(animationId.current);
+          clearTimeout(tid.current);
+        }}>停止</button>
+      </div>
+    </div>
   );
 };
 
