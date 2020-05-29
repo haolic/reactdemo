@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import menu from '../config/menu.config';
 import styles from './Header.less';
 
-const nav = menu;
-
 const Header = () => {
   const [activeItem, setActiveItem] = useState(menu[0].path);
   useEffect(() => {
@@ -16,7 +14,7 @@ const Header = () => {
   }, []);
   return (
     <div className={styles.wrap}>
-      {nav.map(el => (
+      {menu.map(el => (
         <div
           className={`${styles.item} ${activeItem === el.path ? styles.active : ''}`}
           key={el.path}
