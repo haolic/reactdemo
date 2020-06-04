@@ -40,5 +40,6 @@ const DataPropType = () => {
     </div>
   );
 };
+DataPropType.label = '数据类型';
 
 export default DataPropType;
