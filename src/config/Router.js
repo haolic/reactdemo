@@ -8,17 +8,18 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 
 export default function App() {
   const menu0 = menu[0];
+  const initPath = window.location.pathname === '/' ? menu0.path : window.location.pathname;
   return (
     <Provider store={store}>
       <Router>
-        <Redirect to={menu0.path} from="/" />
+        <Redirect to={initPath} from="/" />
         <Route path="/">
           <Layout>
             <Switch>
               {menu.map(item => {
                 const Comp = item.component;
                 return (
-                  <Route path={item.path} key={item.path}>
+                  <Route path={item.path} exact key={item.path}>
                     <Comp />
                   </Route>
                 );
