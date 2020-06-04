@@ -13,13 +13,16 @@
   height: 100%;
   min-width: 100px;
   text-align: center;
-  transition: all .25s;
+  transition: all 0.25s;
   :global {
     a {
       height: 100%;
       line-height: @height;
       padding: 0 15px;
       display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
   &:hover {

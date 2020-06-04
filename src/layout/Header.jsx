@@ -18,6 +18,7 @@ const Header = () => {
         <div
           className={`${styles.item} ${activeItem === el.path ? styles.active : ''}`}
           key={el.path}
+          title={el.name}
         >
           <Link to={el.path} onClick={() => setActiveItem(el.path)}>{el.name}</Link>
         </div>
