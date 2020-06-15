@@ -40,6 +40,7 @@ const Resize = props => {
       document.removeEventListener('mouseup', mouseup);
       containerDom.removeEventListener('mousemove', mousemove);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [canResize]);
   const mousedown = e => {
     setCanResize(true);
