@@ -6,9 +6,13 @@ const componentList = [];
 allKeys.forEach(key => {
   const comp = context(key);
   const resPath = context.resolve(key);
+  let path = key;
+  if (key.includes('/index.jsx')) {
+    path = key.replace('/index.jsx', '');
+  }
   componentList.push({
     name: comp.default && (comp.default.label || comp.default.name || '未命名'),
-    path: key.split('.')[1],
+    path: path.split('.')[1],
     component:
       comp.default ||
       (() => (
