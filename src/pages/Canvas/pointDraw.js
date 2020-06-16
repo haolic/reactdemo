@@ -13,6 +13,7 @@ export default class PointDraw {
   eventBind() {
     const { canvas, ctx } = this;
     canvas.addEventListener('mousedown', e => {
+      ctx.beginPath();
       const { left, top } = canvas.getBoundingClientRect();
       const [x, y] = [e.clientX - left, e.clientY - top];
       ctx.moveTo(x, y);
@@ -60,6 +61,7 @@ export default class PointDraw {
     this.canvas = canvas;
     this.canvasWrap.appendChild(this.canvas);
     this.eventBind();
+    return { ctx: this.ctx, canvas };
   }
 
   /**
@@ -67,6 +69,7 @@ export default class PointDraw {
    */
   drawRect() {
     const { ctx } = this;
+    ctx.beginPath();
     ctx.moveTo(0, 0);
     ctx.lineTo(200, 0);
     ctx.lineTo(200, 100);
@@ -78,6 +81,4 @@ export default class PointDraw {
     ctx.fillStyle = '#FF0000';
     ctx.fillRect(0, 110, 150, 75);
   }
-
-  pointerDraw() {}
 }
