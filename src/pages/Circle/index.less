@@ -1,0 +1,81 @@
+.wrap {
+  height: 450px;
+  margin: 100px;
+  box-shadow: 0px 0px 20px 3px #f90;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@w: 20px;
+@color: linear-gradient(0deg, #66CCFF, #9966FF);
+
+.circleWrap {
+  position: relative;
+  border-radius: 50%;
+  // overflow: hidden;
+  // border: 1px solid #ddd;
+  box-sizing: content-box;
+  background-image: @color;
+
+  &::before {
+    content: '';
+    display: block;
+    box-sizing: border-box;
+    width: calc(100% - @w);
+    height: calc(100% - @w);
+    margin-left: @w / 2;
+    margin-top: @w / 2;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 9;
+    background-color: #fff;
+    box-shadow: inset 0px 0px 20px 0px #CCCCFF, 0px 0px 20px 0px #CCCCFF;
+  }
+  .halfWrap {
+    position: absolute;
+    overflow: hidden;
+  }
+  .rightHalfWrap {
+    right: 0;
+    .inner {
+      background-color: #fff;
+      height: calc(100% + 4px);
+      position: relative;
+      top: -2px;
+      // transition: all 1s linear;
+      transform-origin: 0 50% 0;
+    }
+  }
+  .leftHalfWrap {
+    left: 0;
+    .inner {
+      background-color: #fff;
+      height: calc(100% + 4px);
+      position: relative;
+      bottom: 2px;
+      // transition: all 1s linear;
+      transform-origin: 100% 50% 0;
+    }
+  }
+  .pointRight {
+    position: absolute;
+    left: 95px;
+    top: 0;
+    height: @w / 2;
+    width: @w / 2;
+    border-radius: 50%;
+    background-image: @color;
+    transform-origin: 4.6px 100px 0;
+  }
+  .pointLeft {
+    position: absolute;
+    left: 95px;
+    bottom: 0;
+    height: @w / 2;
+    width: @w / 2;
+    border-radius: 50%;
+    background-image: @color;
+    transform-origin: 4.6px -90px 0;
+  }
+}
