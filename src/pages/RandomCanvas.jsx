@@ -10,6 +10,7 @@ const RandomCanvas = () => {
   const canDraw = useRef(false);
 
   const drawItem = ctx => {
+    if (!ctx) return;
     const x = Math.random() * config.width;
     const y = Math.random() * config.height;
     ctx.moveTo(x, y);
@@ -25,7 +26,7 @@ const RandomCanvas = () => {
     draw();
   };
   const draw = () => {
-    const ctx = canvasRef.current.getContext('2d');
+    const ctx = canvasRef.current?.getContext('2d');
     if (canDraw.current) {
       drawItem(ctx);
       requestAnimationFrame(draw);
