@@ -75,10 +75,10 @@ export default class PointDraw {
     ctx.lineTo(200, 100);
     ctx.lineTo(0, 100);
     ctx.lineTo(0, 0);
-    ctx.fillStyle = 'rgba(0, 0, 1, 0.4)';
+    ctx.fillStyle = '#CCCCFF';
     ctx.fill();
 
-    ctx.fillStyle = 'rgba(3, 3 , 1, 0.1)';
+    ctx.fillStyle = '#6699FF';
     ctx.fillRect(0, 110, 150, 75);
   }
 }

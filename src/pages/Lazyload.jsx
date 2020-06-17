@@ -7,6 +7,7 @@ const Lazyload = () => {
   const [list, setList] = useState(new Array(30).fill('').map((el, idx) => idx));
   const scroll = () => {
     const wrapDom = wrap.current;
+    if (!wrapDom) return;
     const { clientHeight, scrollHeight, scrollTop } = wrapDom;
     if (clientHeight + scrollTop >= scrollHeight) {
       const addItem = new Array(10).fill('').map((el, idx) => {
