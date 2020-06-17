@@ -7,7 +7,11 @@ const Canvas = () => {
   const inst = useRef({});
   useEffect(() => {
     inst.current = draw(canvasRef.current);
-    console.log(inst)
+    const { canvas, ctx } = inst.current;
+    canvas.addEventListener('click', e => {
+      const imgData = ctx.getImageData(e.layerX, e.layerY, 1, 1);
+      console.log(imgData);
+    });
   }, []);
 
   const clearCanvas = () => {
