@@ -1,5 +1,5 @@
 import React from 'react';
-import ResizeWrap from 'resize-wrap';
+import ResizeWrap from 'resize-container';
 import LazyLoad from './Lazyload';
 
 const ResizeByNPM = () => {
