@@ -5,7 +5,12 @@ const ProgressWithColor = () => {
   const [width, setWidth] = useState(0);
 
   const click = () => {
-    setWidth(width + 5);
+    const w = width + 5;
+    if (w > 100) {
+      setWidth(0);
+    } else {
+      setWidth(w);
+    }
   };
 
   const progressColor = width > 6 && width <= 85 ? '#1677FF' : '#FF3B2F';
