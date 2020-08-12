@@ -1,4 +1,4 @@
-module.export = {
-  "singleQuote": true,
-  "trailingComma": "all"
-}
+module.exports = {
+  singleQuote: true,
+  trailingComma: 'all',
+};

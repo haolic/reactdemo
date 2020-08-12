@@ -112,6 +112,7 @@ module.exports = function (webpackEnv) {
           loader: require.resolve(preProcessor),
           options: {
             sourceMap: true,
+            // javascriptEnabled: true
           },
         }
       );
@@ -426,7 +427,20 @@ module.exports = function (webpackEnv) {
                     modules: true, //重点
                   },
                 },
-                { loader: 'less-loader' },
+                {
+                  loader: 'less-loader',
+                  options: {
+                    sourceMap: true,
+                    lessOptions: {
+                      javascriptEnabled: true,
+                      // modifyVars: {
+                      //   'primary-color': '#ff4757',
+                      //   'link-color': '#ff4757',
+                      //   'border-radius-base': '2px',
+                      // }
+                    }
+                  }
+                }
               ],
             },
             // Adds support for CSS Modules (https://github.com/css-modules/css-modules)
