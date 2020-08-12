@@ -23,29 +23,19 @@ Icon.iconRegister({
 const Sula = () => {
   return (
     <CreateForm
-      fields={[
-        {
+      fields={new Array(10).fill('').map((el) => {
+        const name = Math.random().toString(36);
+        return {
           field: {
             type: 'input',
             props: {
               placeholder: 'Please input',
             },
           },
-          name: 'input',
+          name: name,
           label: 'Input',
-        },
-        {
-          field: 'select',
-          name: 'select',
-          label: 'Select',
-          initialSource: [
-            {
-              text: '苹果',
-              value: 'apple',
-            },
-          ],
-        },
-      ]}
+        };
+      })}
       submit={{
         url: 'https://www.mocky.io/v2/5185415ba171ea3a00704eed',
         method: 'POST',

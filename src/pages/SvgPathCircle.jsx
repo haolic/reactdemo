@@ -54,9 +54,9 @@ const SvgPathCircle = () => {
             }}
           >
             <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#05a" />
-              <stop offset="50%" stop-color="#a55" />
-              <stop offset="100%" stop-color="#0a5" />
+              <stop offset="0%" stopColor="#05a" />
+              <stop offset="50%" stopColor="#a55" />
+              <stop offset="100%" stopColor="#0a5" />
             </linearGradient>
             <path
               d={pathGen(size)}
