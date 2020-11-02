@@ -89,6 +89,7 @@ module.exports = function(proxy, allowedHost) {
       ignored: ignoredFiles(paths.appSrc),
     },
     https: getHttpsConfig(),
+    // https: true, // 调试调用摄像头等api需要启动https协议。
     host,
     overlay: false,
     historyApiFallback: {

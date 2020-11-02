@@ -11,7 +11,7 @@ allKeys.forEach(key => {
     path = key.replace('/index.jsx', '');
   }
   componentList.push({
-    name: comp.default && (comp.default.label || comp.default.name || '未命名'),
+    name: comp.default && (comp.default.label || comp.default.name || path),
     path: path.split('.')[1],
     component:
       comp.default ||
