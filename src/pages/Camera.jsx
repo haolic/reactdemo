@@ -23,10 +23,13 @@ const Camera = () => {
       .catch((err) => {
         console.error(err);
       });
-    return () => {
+    const stop = () => {
       ref.current.srcObject.getVideoTracks().forEach(function (track) {
         track.stop();
       });
+    };
+    return () => {
+      stop();
     };
   }, []);
   return (
