@@ -15,6 +15,9 @@ const Camera = () => {
         video: true,
       })
       .then((stream) => {
+        if (!ref.current) {
+          return;
+        }
         ref.current.srcObject = stream;
         ref.current.onloadedmetadata = function (e) {
           ref.current.play();
@@ -24,6 +27,9 @@ const Camera = () => {
         console.error(err);
       });
     const stop = () => {
+      if (!ref.current.srcObject) {
+        return;
+      }
       ref.current.srcObject.getVideoTracks().forEach(function (track) {
         track.stop();
       });
