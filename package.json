@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^4.5.3",
+    "highlight.js": "^10.7.2",
     "lodash": "^4.17.15",
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
