@@ -1,23 +1,21 @@
-import React, { useRef, useState } from 'react';
-import ContentEditable from 'react-contenteditable';
+import React, { useRef } from 'react';
+// import ContentEditable from 'react-contenteditable';
 import { Select } from 'antd';
 
 const MyComponent = () => {
   const contentEditable = useRef();
-  const [html, setHtml] = useState('');
+  // const [html, setHtml] = useState('');
   const rangeInfo = useRef();
 
   const getValueInfo = () => {
-    return contentEditable.current.childNodes;
+    // 创建div来防止产生远程未挂载节点
+    const div = document.createElement('div');
+    div.innerHTML = contentEditable.current.innerHTML;
+
+    return div.childNodes;
   };
 
   const handleChange = (evt) => {
-    setHtml(evt.target.value);
-    // console.log(evt.target.value);
-    // const div = document.createElement('div');
-    // div.innerHTML = evt.target.value;
-    // // 获取子元素们
-    // console.log(div.childNodes);
     const childNodes = getValueInfo();
     console.log(childNodes);
   };
@@ -42,7 +40,7 @@ const MyComponent = () => {
   const insertWord = (word) => {
     contentEditable.current.focus();
     const el = document.createElement('div');
-    el.innerHTML = `<span style="display: inline-block; background: #f90;" contentEditable="false">${word}</span>`;
+    el.innerHTML = word;
     var frag = document.createDocumentFragment(),
       node,
       lastNode;
@@ -72,27 +70,37 @@ const MyComponent = () => {
   };
 
   const onSelect = (v) => {
-    insertWord(v);
+    insertWord(
+      `<span style="display: inline-block; background: #f90;" contentEditable="false">${v}</span>`,
+    );
     console.log(getValueInfo());
   };
 
   const blur = () => {
     saveRangeInfo();
   };
+
+  const keyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      return;
+      // insertWord('<br />');
+    }
+  };
   return (
     <div>
-      <ContentEditable
-        innerRef={contentEditable}
-        html={html} // innerHTML of the editable div
-        disabled={false} // use true to disable editing
+      <div
+        contentEditable={true}
+        ref={contentEditable}
+        // html={html} // innerHTML of the editable div
         onChange={handleChange} // handle innerHTML change
-        tagName="div" // Use a custom HTML tag (uses a div by default)
+        onKeyDown={keyDown}
         onBlur={blur}
       />
 
       <button
         onClick={() => {
-          setHtml('112234');
+          // setHtml('112234');
           contentEditable.current.innerHTML = '112234';
         }}
       >
