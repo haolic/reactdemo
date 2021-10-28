@@ -1,31 +1,8 @@
 import React, { useEffect } from 'react';
+import { Modal } from 'antd';
 
 const ContentEditable2 = () => {
-  useEffect(() => {
-    // var cursor = 0; // 光标位置
-    // document.onselectionchange = function () {
-    //   var range = document.selection.createRange();
-    //   var srcele = range.parentElement(); //获取到当前元素
-    //   var copy = document.body.createTextRange();
-    //   copy.moveToElementText(srcele);
-    //   for (
-    //     cursor = 0;
-    //     copy.compareEndPoints('StartToStart', range) < 0;
-    //     cursor++
-    //   ) {
-    //     copy.moveStart('character', 1); //改变光标位置，实际上我们是在记录cursor的数量.
-    //   }
-    // };
-    // function moveEnd(obj) {
-    //   lyTXT1.focus();
-    //   var r = document.selection.createRange();
-    //   //因为这里死从当前光标开始移动的(好像文本框的是从0算起.)所以我们需要拿到当前光标位置，然后就可以计算出要移动多少位了，这样就可以把光标移动到想要的位置了
-    //   r.moveStart('character', lyTXT1.innerText.length - cursor);
-    //   r.collapse(true);
-    //   r.select();
-    // }
-  }, []);
-  function insertHtmlAtCaret(html) {
+  const insertHtmlAtCaret = async (html) => {
     var sel, range;
     if (window.getSelection) {
       // IE9 and non-IE
@@ -50,6 +27,7 @@ const ContentEditable2 = () => {
           range.setStartAfter(lastNode);
           range.collapse(true);
           sel.removeAllRanges();
+
           sel.addRange(range);
         }
       }
@@ -57,23 +35,39 @@ const ContentEditable2 = () => {
       // IE < 9
       document.selection.createRange().pasteHTML(html);
     }
-  }
-
-  const onClick = () => {
-    document.getElementById('test').focus();
-    insertHtmlAtCaret('<b contentEditable="false">INSERTED</b>');
   };
-  const keyDown = (e) => {
-    // if (e.keyCode === 13) {
-    //   e.preventDefault();
-    // }
-    
-    console.log(e);
+
+  const onClick = async () => {
+    document.getElementById('test').focus();
+
+    const xx = await new Promise((resolve) => {
+      Modal.confirm({
+        content: 'xxx',
+        onOk: () => resolve(Math.random().toFixed(2)),
+      });
+    });
+
+    insertHtmlAtCaret(
+      `<span style="display: inline-block" contentEditable="false">${xx}</span>`,
+    );
+  };
+
+  const blur = (e) => {
+    const html = e.target.innerHTML;
+    const text = e.target.innerText;
+    console.log(html);
+    console.log(text);
+
+    var div = document.createElement('div');
+    if (typeof html == 'string') {
+      div.innerHTML = html;
+      console.log(div.childNodes);
+    }
   };
   return (
     <div>
       <button onClick={onClick}>插入字符</button>
-      <div contentEditable="true" id="test" onKeyDown={keyDown}></div>
+      <div contentEditable="true" id="test" onBlur={blur}></div>
     </div>
   );
 };
