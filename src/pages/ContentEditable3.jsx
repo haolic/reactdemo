@@ -7,13 +7,19 @@ const MyComponent = () => {
   // const [html, setHtml] = useState('');
   const rangeInfo = useRef();
 
+  const getValueInfo = () => {
+    return contentEditable.current.childNodes;
+  };
+
   const handleChange = (evt) => {
     // setHtml(evt.target.value);
-    console.log(evt.target.value);
-    const div = document.createElement('div');
-    div.innerHTML = evt.target.value;
-    // 获取子元素们
-    console.log(div.childNodes);
+    // console.log(evt.target.value);
+    // const div = document.createElement('div');
+    // div.innerHTML = evt.target.value;
+    // // 获取子元素们
+    // console.log(div.childNodes);
+    const childNodes = getValueInfo();
+    console.log(childNodes);
   };
 
   const insertWord = (word) => {
@@ -25,6 +31,10 @@ const MyComponent = () => {
       lastNode;
     while ((node = el.firstChild)) {
       lastNode = frag.appendChild(node);
+    }
+    if (!contentEditable.current.innerHTML) {
+      contentEditable.current.appendChild(lastNode);
+      return;
     }
 
     let { range, sel } = rangeInfo.current;
@@ -42,8 +52,8 @@ const MyComponent = () => {
   };
 
   const onSelect = (v) => {
-    console.log(v);
     insertWord(v);
+    console.log(getValueInfo());
   };
 
   const saveRangeInfo = () => {
