@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
-import { Modal } from 'antd';
+import React, { useRef } from 'react';
 
 const ContentEditable2 = () => {
+  const rangeInfo = useRef({});
+  const inputRef = useRef();
+
   const insertHtmlAtCaret = async (html) => {
     var sel, range;
     if (window.getSelection) {
@@ -10,26 +12,10 @@ const ContentEditable2 = () => {
       if (sel.getRangeAt && sel.rangeCount) {
         range = sel.getRangeAt(0);
         range.deleteContents();
-        // Range.createContextualFragment() would be useful here but is
-        // non-standard and not supported in all browsers (IE9, for one)
-        var el = document.createElement('div');
-        el.innerHTML = html;
-        var frag = document.createDocumentFragment(),
-          node,
-          lastNode;
-        while ((node = el.firstChild)) {
-          lastNode = frag.appendChild(node);
-        }
-        range.insertNode(frag);
-        // Preserve the selection
-        if (lastNode) {
-          range = range.cloneRange();
-          range.setStartAfter(lastNode);
-          range.collapse(true);
-          sel.removeAllRanges();
-
-          sel.addRange(range);
-        }
+        rangeInfo.current = {
+          range,
+          sel,
+        };
       }
     } else if (document.selection && document.selection.type !== 'Control') {
       // IE < 9
@@ -40,34 +26,56 @@ const ContentEditable2 = () => {
   const onClick = async () => {
     document.getElementById('test').focus();
 
-    const xx = await new Promise((resolve) => {
-      Modal.confirm({
-        content: 'xxx',
-        onOk: () => resolve(Math.random().toFixed(2)),
-      });
-    });
+    var el = document.createElement('div');
+    el.innerHTML =
+      '<span style="display: inline-block" contentEditable="false">xxxxx</span>';
+    var frag = document.createDocumentFragment(),
+      node,
+      lastNode;
+    while ((node = el.firstChild)) {
+      lastNode = frag.appendChild(node);
+    }
 
-    insertHtmlAtCaret(
-      `<span style="display: inline-block" contentEditable="false">${xx}</span>`,
-    );
+    let { range, sel } = rangeInfo.current;
+
+    range.insertNode(frag);
+    // Preserve the selection
+    if (lastNode) {
+      range = range.cloneRange();
+      range.setStartAfter(lastNode);
+      range.collapse(true);
+      sel.removeAllRanges();
+
+      sel.addRange(range);
+    }
+
+    // insertHtmlAtCaret(
+    //   `<span style="display: inline-block" contentEditable="false">${xx}</span>`,
+    // );
   };
 
   const blur = (e) => {
-    const html = e.target.innerHTML;
-    const text = e.target.innerText;
-    console.log(html);
-    console.log(text);
-
+    insertHtmlAtCaret();
     var div = document.createElement('div');
     if (typeof html == 'string') {
-      div.innerHTML = html;
+      div.innerHTML = e.target.value;
       console.log(div.childNodes);
     }
   };
+
+  const onInput = (e) => {
+    console.log(e);
+  };
   return (
     <div>
-      <button onClick={onClick}>插入字符</button>
-      <div contentEditable="true" id="test" onBlur={blur}></div>
+      <div
+        contentEditable="true"
+        id="test"
+        onBlur={blur}
+        onInput={onInput}
+      ></div>
+      <button onClick={onClick}>dianji/</button>
+      <input ref={inputRef} />
     </div>
   );
 };
