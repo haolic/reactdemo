@@ -424,7 +424,9 @@ module.exports = function (webpackEnv) {
                   loader: 'css-loader',
                   options: {
                     sourceMap: true,
-                    modules: true, //重点
+                    modules: {
+                      localIdentName: '[name]__[local]--[hash:base64:5]', 
+                    },
                   },
                 },
                 {
