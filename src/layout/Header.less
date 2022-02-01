@@ -1,41 +1,43 @@
 @height: 48px;
 .wrap {
-  display: flex;
   background: #111b26;
-  height: @height;
+  height: 100vh;
+  width: 200px;
   color: #fff;
-  overflow-x: scroll;
-  overflow-y: auto;
+  overflow: auto;
 }
 
 .item {
   box-sizing: border-box;
-  height: 100%;
-  min-width: 115px;
+  height: @height;
+  width: 100%;
   text-align: center;
   transition: all 0.25s;
   :global {
     a {
       height: 100%;
       line-height: @height;
-      padding: 0 15px;
       display: block;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      color: rgb(212, 212, 212);
     }
   }
   &:hover {
     background-color: rgb(255, 186, 82);
     color: #333;
+    a {
+      color: #666;
+    }
   }
 }
 
 .active {
   background-color: rgb(255, 186, 82);
   color: #333;
+  a {
+    color: #333;
+  }
 }
 
-.item + .item {
-  margin-left: 15px;
-}

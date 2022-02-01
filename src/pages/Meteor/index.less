@@ -1,0 +1,25 @@
+.wrap {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  .inner {
+    display: inline-block;
+    position: absolute;
+    bottom: 50px;
+    left: 100px;
+    animation: go 7s infinite;
+    transform-origin: 500px 500px;
+    .innerIconWrap {
+      transform: rotate(270deg);
+    }
+  }
+}
+
+@keyframes go {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
