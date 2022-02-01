@@ -8965,6 +8965,14 @@ requires-port@^1.0.0:
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
+resize-container@^1.0.0:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/resize-container/-/resize-container-1.0.2.tgz#2ca34f21355c96b65a73bb285bb35b2c24266b6e"
+  integrity sha512-ooUbsgXBVd3C6hUbSuy6h6PKSidWIjvBbojwjHcs02qhTtVZ0yfFZuLsp4P+krFetCUpga9bvKlK50rYD6yoEA==
+  dependencies:
+    react "^16.13.1"
+    react-dom "^16.13.1"
+
 resolve-cwd@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/resolve-cwd/-/resolve-cwd-2.0.0.tgz#00a9f7387556e27038eae232caa372a6a59b665a"
