@@ -12,10 +12,10 @@ const L7Map = () => {
       map: {
         type: 'amap',
         style: 'blank',
-        center: [120.19382669582967, 30.258134],
-        zoom: 4,
-        minZoom: 4,
-        maxZoom: 4,
+        center: [104.195397, 35.86166],
+        zoom: 3.5,
+        minZoom: 3.5,
+        maxZoom: 3.5,
         pitch: 0,
         dragEnable: false,
       },
@@ -44,8 +44,8 @@ const L7Map = () => {
         data: [
           {
             coord: [
-              [104.195397, 35.86166],
               [90, 30],
+              [104.195397, 35.86166],
             ],
           },
         ],
