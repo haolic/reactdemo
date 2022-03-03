@@ -1,9 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { Area, L7Plot } from '@antv/l7plot';
+import { L7Plot } from '@antv/l7plot';
 import styles from './index.less';
 
 import world from './worldData';
-import flydata from './flyData';
 
 const L7Map = () => {
   const domRef = useRef();
@@ -20,7 +19,7 @@ const L7Map = () => {
         dragEnable: false,
       },
     });
-    plot.addLayer({
+    window.plot.addLayer({
       name: 'area',
       type: 'areaLayer',
       source: {
@@ -37,7 +36,7 @@ const L7Map = () => {
         stroke: '#22a2c9',
       },
     });
-    plot.addLayer({
+    window.plot.addLayer({
       name: 'flyLine',
       type: 'arcLayer',
       source: {
