@@ -12,6 +12,7 @@
     "@antv/l7plot": "^0.0.5",
     "antd": "^4.5.3",
     "axios": "^0.26.0",
+    "dayjs": "^1.11.1",
     "highlight.js": "^10.7.2",
     "http-proxy-middleware": "^2.0.3",
     "js-base64": "^3.7.2",
@@ -30,7 +31,8 @@
     "redux": "^4.0.5",
     "resize-container": "^1.0.0",
     "sanitize-html": "^2.4.0",
-    "sula": "^1.0.0-beta.6"
+    "sula": "^1.0.0-beta.6",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "start": "node scripts/start.js",
