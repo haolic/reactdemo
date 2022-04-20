@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import uuid from 'uuid/v4';
 import dayjs from 'dayjs';
 
 const IndexedDB = () => {
