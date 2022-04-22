@@ -27,12 +27,11 @@ const Camera = () => {
         console.error(err);
       });
     const stop = () => {
-      if (!ref.current.srcObject) {
-        return;
+      if (ref.current && ref.current.srcObject) {
+        ref.current.srcObject.getVideoTracks().forEach(function (track) {
+          track.stop();
+        });
       }
-      ref.current.srcObject.getVideoTracks().forEach(function (track) {
-        track.stop();
-      });
     };
     return () => {
       stop();

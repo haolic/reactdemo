@@ -18,7 +18,7 @@ allKeys.forEach((key) => {
 
 componentList.push({
   name: '找不到页面',
-  path: '/*',
+  path: '/page404',
   component: NotFound,
 });
 

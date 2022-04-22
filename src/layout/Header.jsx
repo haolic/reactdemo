@@ -12,17 +12,36 @@ const Header = () => {
       setActiveItem(window.location.pathname || menu[0].path);
     }
   }, []);
+  useEffect(() => {
+    const dom = document.querySelector(`#${activeItem.replace('/', '')}`);
+    if (dom) {
+      dom.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }, [activeItem]);
   return (
     <div className={styles.wrap}>
-      {menu.map(el => (
-        <div
-          className={`${styles.item} ${activeItem === el.path ? styles.active : ''}`}
-          key={el.path}
-          title={el.name}
-        >
-          <Link to={el.path} onClick={() => setActiveItem(el.path)}>{el.name}</Link>
-        </div>
-      ))}
+      {menu.map((el) => {
+        let id = '';
+        if (el.path === '/') {
+          id = 'home';
+        } else {
+          id = el.path.replace('/', '');
+        }
+        return (
+          <div
+            className={`${styles.item} ${
+              activeItem === el.path ? styles.active : ''
+            }`}
+            key={el.path}
+            id={id}
+            title={el.name}
+          >
+            <Link to={el.path} onClick={() => setActiveItem(el.path)}>
+              {el.name}
+            </Link>
+          </div>
+        );
+      })}
     </div>
   );
 };
