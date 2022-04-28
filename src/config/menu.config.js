@@ -21,7 +21,9 @@ allKeys.forEach((key) => {
     path = key.replace('/index.tsx', '');
   }
   componentList.push({
-    name: comp.default && (comp.default.label || comp.default.name || path),
+    name:
+      comp.default &&
+      (comp.default.label || comp.default.title || comp.default.name || path),
     path: path.split('.')[1],
     component: comp.default,
   });
