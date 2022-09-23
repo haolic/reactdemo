@@ -85,7 +85,7 @@
     "@antv/l7-maps": "^2.7.9",
     "@antv/l7-scene": "^2.7.9",
     "@antv/l7plot": "^0.0.5",
-    "antd": "^4.19.5",
+    "antd": "^4.23.2",
     "axios": "^0.26.0",
     "dayjs": "^1.11.1",
     "highlight.js": "^10.7.2",
