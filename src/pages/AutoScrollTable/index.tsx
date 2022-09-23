@@ -29,39 +29,16 @@ const AutoScrollTablePage: FC = () => {
       },
     },
   ];
+  const dataSource = new Array(100).fill('').map((el, idx) => {
+    return {
+      carNo: `浙AU075N`,
+      deliveryWarehouse: '发货仓库发货仓库发货仓库发货仓库' + idx,
+      deliveryTime: '2022-07-06 HH:mm:ss',
+      status: `正常${idx}`,
+      key: `${idx}`,
+    };
+  });
 
-  const dataSource = [
-    {
-      carNo: '浙AU075N',
-      deliveryWarehouse: '发货仓库发货仓库发货仓库发货仓库',
-      deliveryTime: '2022-07-06 HH:mm:ss',
-      status: '正常',
-    },
-    {
-      carNo: '浙A33223',
-      deliveryWarehouse: '发货仓库发货仓库发货仓库发货仓库',
-      deliveryTime: '2022-07-06 HH:mm:ss',
-      status: '正常',
-    },
-    {
-      carNo: '浙AF78964',
-      deliveryWarehouse: '发货仓库发货仓库发货仓库发货仓库',
-      deliveryTime: '2022-07-06 HH:mm:ss',
-      status: '正常',
-    },
-    {
-      carNo: '云AN12345',
-      deliveryWarehouse: '发货仓库发货仓库发货仓库发货仓库',
-      deliveryTime: '2022-07-06 HH:mm:ss',
-      status: '正常',
-    },
-    {
-      carNo: '云AN22222',
-      deliveryWarehouse: '发货仓库发货仓库发货仓库发货仓库',
-      deliveryTime: '2022-07-06 HH:mm:ss',
-      status: '正常',
-    },
-  ];
   return (
     <div style={{ padding: 50 }}>
       <AutoScrollTable columns={columns} dataSource={dataSource} />
