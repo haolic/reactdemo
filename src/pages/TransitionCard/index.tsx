@@ -15,7 +15,8 @@ const data = [
   },
   {
     top: 100,
-    left: 200,
+    left: 700,
+    align: 'left',
     code: 'xxx2',
     unit: '减碳量tCO₂',
     format: 'int',
@@ -33,13 +34,14 @@ const TransitionCard = () => {
           <TCard
             key={el.code}
             position={{
-              x: el.top,
-              y: el.left,
+              x: el.left,
+              y: el.top,
             }}
             value={el.value}
             name={el.name}
             unit={el.unit}
             status={el.status}
+            align={el.align}
           />
         );
       })}

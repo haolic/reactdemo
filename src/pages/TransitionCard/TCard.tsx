@@ -11,10 +11,11 @@ interface TCardProps {
   name?: React.ReactNode;
   unit?: React.ReactNode;
   status?: React.ReactNode;
+  align?: 'left' | 'right' | string;
 }
 
 const TCard = (props: TCardProps) => {
-  const { position, name, status, unit, value } = props;
+  const { position, name, status, unit, value, align } = props;
 
   const [isShow, setIsShow] = useState(false);
   const tId = useRef<NodeJS.Timeout>();
@@ -28,8 +29,14 @@ const TCard = (props: TCardProps) => {
       clearTimeout(tId.current as NodeJS.Timeout);
     };
   }, []);
-  const defaultStyle = { top: position.y + 20, left: position.x };
-  const showStyle = { top: position.y, left: position.x };
+
+  let leftPos = position.x;
+  if (align === 'left') {
+    leftPos = position.x - 176;
+  }
+
+  const defaultStyle = { top: position.y + 20, left: leftPos };
+  const showStyle = { top: position.y, left: leftPos };
 
   return (
     <div
@@ -38,7 +45,11 @@ const TCard = (props: TCardProps) => {
         show: isShow,
       })}
     >
-      <div className="t-card-pointer">
+      <div
+        className={classnames('t-card-pointer', {
+          'pointer-card-align-left': align === 'left',
+        })}
+      >
         <div className="pointer-cycle"></div>
         <div className="pointer-line"></div>
       </div>
