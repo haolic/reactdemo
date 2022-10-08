@@ -12,10 +12,11 @@ interface TCardProps {
   unit?: React.ReactNode;
   status?: React.ReactNode;
   align?: 'left' | 'right' | string;
+  delayRatio?: number;
 }
 
 const TCard = (props: TCardProps) => {
-  const { position, name, status, unit, value, align } = props;
+  const { position, name, status, unit, value, align, delayRatio } = props;
 
   const [isShow, setIsShow] = useState(false);
   const tId = useRef<NodeJS.Timeout>();
@@ -23,12 +24,12 @@ const TCard = (props: TCardProps) => {
   useEffect(() => {
     tId.current = setTimeout(() => {
       setIsShow(true);
-    }, 1000);
+    }, 1000 * (delayRatio || 0));
 
     return () => {
       clearTimeout(tId.current as NodeJS.Timeout);
     };
-  }, []);
+  }, [delayRatio]);
 
   let leftPos = position.x;
   if (align === 'left') {
