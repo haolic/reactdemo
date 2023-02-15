@@ -40,6 +40,6 @@ const ReactUseTransition = () => {
   );
 };
 
-ReactUseTransition.title = 'React18的 useTransition';
+ReactUseTransition.title = 'React18的useTransition';
 
 export default ReactUseTransition;
