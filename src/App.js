@@ -3,7 +3,11 @@ import Router from './config/Router';
 import './App.css';
 
 function App() {
-  return <Router />;
+  return (
+    // <React.StrictMode>
+      <Router />
+    // </React.StrictMode>
+  );
 }
 
 export default App;
