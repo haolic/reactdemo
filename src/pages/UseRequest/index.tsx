@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState, useRef } from 'react';
 
+// 模拟接口调用方法
 function getData(params?): Promise<string> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -31,7 +32,7 @@ interface IRequest {
   data: any;
   error: boolean;
   loading: boolean;
-  run: (params?: any) => void;
+  run: (params?: any) => void; // 如果设置了 options.manual = true，则 useRequest 不会默认执行，需要通过 run 来触发执行
 }
 
 export function useRequest<T>(
@@ -47,29 +48,31 @@ export function useRequest<T>(
     refreshDeps = [],
     debounceWait,
     throttleWait,
-
     onBefore,
     onSuccess,
     onError,
     onFinally,
   } = options;
 
-  const [data, setData] = useState<T>(null);
-  const [error, setError] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [data, setData] = useState<T>(null); // 请求成功结果
+  const [error, setError] = useState<any>(null); // 请求失败结果
+  const [loading, setLoading] = useState<boolean>(false); // 请求loading, 默认: flase
 
-  const pollingErrorNumber = useRef<number>(0);
+  const pollingErrorNumber = useRef<number>(0); // 轮询错误尝试次数，默认值：0
   const debounceWaitId = useRef<ReturnType<typeof setTimeout>>();
   const throttleWaitId = useRef<ReturnType<typeof setTimeout>>();
 
   const getData = useCallback(
     (params?) => {
+      // serviceIns为了缓存数据
       const serviceIns: {
         result?: any;
         error?: any;
         params?: any;
       } = {};
+
       let tId;
+      // 如果设置了loading延迟展示，则在设置时间内不展示loading，防止页面快速闪一下loading
       if (loadingDelay) {
         tId = setTimeout(() => {
           setLoading(true);
@@ -80,6 +83,7 @@ export function useRequest<T>(
       serviceIns.params = params;
 
       onBefore(params);
+
       service(params)
         .then((res) => {
           pollingErrorNumber.current = 0;
@@ -100,13 +104,16 @@ export function useRequest<T>(
           onFinally(serviceIns.params, serviceIns.result, serviceIns.error);
 
           setLoading(false);
+          // 如果设置轮询则按照设置时间轮询调用
           if (pollingInterval) {
+            // 如果设置轮询且设置轮询错误尝试次数，超过设置次数后不再执行轮询
             if (
               pollingErrorRetryCount &&
               pollingErrorNumber.current > pollingErrorRetryCount
             ) {
               return;
             }
+
             setTimeout(() => {
               getData(params);
             }, pollingInterval);
@@ -115,8 +122,11 @@ export function useRequest<T>(
     },
     [service, loadingDelay],
   );
-  const isReady = 'ready' in options ? options.ready : true;
+
+  const isReady = 'ready' in options ? options.ready : true; // 设置ready则为设置值，否则赋值为true
+
   useEffect(() => {
+    // 非手动并且ready的情况下调用接口
     if (!manual && isReady) {
       getData(defaultParams);
     }
@@ -126,6 +136,7 @@ export function useRequest<T>(
     if (!isReady) {
       return;
     }
+    // 防抖情况
     if (debounceWait) {
       if (debounceWaitId.current) {
         clearTimeout(debounceWaitId.current);
@@ -135,12 +146,14 @@ export function useRequest<T>(
         getData(params);
       }, debounceWait);
     } else if (throttleWait) {
+      // 节流情况
       if (throttleWaitId.current) {
         return;
       }
+
       throttleWaitId.current = setTimeout(() => {
-        getData(params);
         throttleWaitId.current = null;
+        getData(params);
       }, throttleWait);
     } else {
       getData(params);
@@ -157,7 +170,7 @@ export function useRequest<T>(
 
 const UseRequest = () => {
   const { data, error, loading, run } = useRequest<string>(getData, {
-    manual: true,
+    // manual: true,
     // loadingDelay: 1500,
     // defaultParams: 'defaultParams',
     // pollingInterval: 2000,
@@ -179,9 +192,6 @@ const UseRequest = () => {
       console.log('onFinally', params, result, error);
     },
   });
-  useEffect(() => {
-    // run('手动调用入参');
-  }, []);
 
   return (
     <div>
