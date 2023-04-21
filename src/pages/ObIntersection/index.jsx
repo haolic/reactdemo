@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import styles from './index.less';
+import styles from './index.module.less';
 
 const ObIntersection = () => {
   useEffect(() => {

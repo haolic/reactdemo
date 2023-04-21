@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
-import styles from './JobItem.less';
+import styles from './JobItem.module.less';
 
 export interface IJob {
   name: string;

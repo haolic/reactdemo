@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import menu from '../config/menu.config';
-import styles from './Header.less';
+import styles from './Header.module.less';
 
 const Header = () => {
   const [activeItem, setActiveItem] = useState(menu[0].path);
@@ -12,12 +12,14 @@ const Header = () => {
       setActiveItem(window.location.pathname || menu[0].path);
     }
   }, []);
+
   useEffect(() => {
     const dom = document.querySelector(`#${activeItem.replace('/', '')}`);
     if (dom) {
       dom.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   }, [activeItem]);
+
   return (
     <div className={styles.wrap}>
       {menu.map((el) => {

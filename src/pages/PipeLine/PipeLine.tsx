@@ -1,6 +1,6 @@
 import React from 'react';
 import NodeItem, { IStage } from './NodeItem';
-import styles from './PipeLine.less';
+import styles from './PipeLine.module.less';
 
 interface IPipeline {
   stages: IStage[];

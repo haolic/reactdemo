@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { L7Plot } from '@antv/l7plot';
-import styles from './index.less';
+import styles from './index.module.less';
 
 import world from './worldData';
 

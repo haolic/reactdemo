@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Onepx.less';
+import styles from './Onepx.module.less';
 
 const OnePx = () => {
   return (

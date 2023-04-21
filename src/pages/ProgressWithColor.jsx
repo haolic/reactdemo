@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './ProgressWithColor.less';
+import styles from './ProgressWithColor.module.less';
 
 const ProgressWithColor = () => {
   const [width, setWidth] = useState(0);

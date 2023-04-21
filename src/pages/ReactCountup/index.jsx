@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styles from './index.less';
+import styles from './index.module.less';
 import { useCountUp } from 'react-countup';
 
 const ReactCountup = (props) => {

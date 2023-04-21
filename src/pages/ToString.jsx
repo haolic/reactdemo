@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ToString.less';
+import styles from './ToString.module.less';
 
 const ToString = () => {
   const click = () => {
