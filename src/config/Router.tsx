@@ -1,4 +1,3 @@
-import React from 'react';
 import menu from './menu.config';
 import Layout from '../layout/Layout';
 import { Provider } from 'react-redux';

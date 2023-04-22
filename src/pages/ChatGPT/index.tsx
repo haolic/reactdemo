@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button, Input } from 'antd';
 import axios from 'axios';
 
@@ -15,12 +15,9 @@ const ChatGPT = () => {
   // });
 
   const onClick = async () => {
-    const res = await axios.post(
-      'http://ec2-52-91-13-155.compute-1.amazonaws.com:3000/api/chat',
-      {
-        input: text,
-      }
-    );
+    const res = await axios.get('http://52.91.13.155:3000/api/chat', {
+      input: text,
+    } as any);
     console.log(res);
     // setGptRes(res.data)
   };
