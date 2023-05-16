@@ -39,7 +39,7 @@ const JobItem = (props: IJobSelf) => {
         {!isLastNode && isfirstJob && (
           <path
             className={styles.line}
-            d={showLine ? 'M192 72 l40 0' : 'M192 72 l0 0'}
+            d={showLine ? 'M190 72 l40 0' : 'M192 72 l0 0'}
           ></path>
         )}
         {!isFirstNode && !isfirstJob && (
@@ -47,8 +47,8 @@ const JobItem = (props: IJobSelf) => {
             className={styles.line}
             d={
               showLine
-                ? 'M10 18 m10 0 a10,10 0 0,1 10,10 l0 35 a10,10 0 0,0 10,10'
-                : 'M10 18 m0 0 a0,0 0 0,1 0,0 l0 0 a0,0 0 0,0 -0,0'
+                ? 'M10 20 m10 0 a10,10 0 0,1 10,10 l0 35 a10,10 0 0,0 10,10'
+                : 'M10 20 m0 0 a0,0 0 0,1 0,0 l0 0 a0,0 0 0,0 -0,0'
             }
           ></path>
         )}
@@ -57,8 +57,8 @@ const JobItem = (props: IJobSelf) => {
             className={styles.line}
             d={
               showLine
-                ? 'M211 18 a10,10 0 0,0 -10,10 l0 35 a10,10 0 0,1 -10,10'
-                : 'M211 18 a0,0 0 0,0 -0,0 l0 0 a0,0 0 0,0 -0,0'
+                ? 'M211 20 a10,10 0 0,0 -10,10 l0 35 a10,10 0 0,1 -10,10'
+                : 'M211 20 a0,0 0 0,0 -0,0 l0 0 a0,0 0 0,0 -0,0'
             }
           ></path>
         )}

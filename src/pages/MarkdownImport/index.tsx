@@ -20,7 +20,7 @@ const MarkdownImport = () => {
     const WinPrint = window.open(
       '',
       '',
-      // 'left=0,top=0,width=768,height=576'
+      'left=0,top=0,width=768,height=576'
     ) as Window; // 打开新窗口
 
     WinPrint.document.write(prtContent.innerHTML); // 写入要打印的元素
@@ -32,13 +32,13 @@ const MarkdownImport = () => {
 
   return (
     <div className={styles.wrap}>
-      <button onClick={onPrint}>打印</button>
+      {str && <button onClick={onPrint}>打印</button>}
       {str ? (
         <div id="print-html">
           <ReactMarkdown>{str}</ReactMarkdown>
         </div>
       ) : (
-        <input type="file" onChange={fileChange} />
+        <input type="file" accept=".md" onChange={fileChange} />
       )}
     </div>
   );
