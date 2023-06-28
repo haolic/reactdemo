@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   Button,
   Form,
@@ -25,7 +25,7 @@ const IndexedDB = () => {
   const [currentEditRecord, setCurrentEditRecord] = useState(undefined);
   const [list, setList] = useState([]);
 
-  const initDB = () => {
+  const initDB = useCallback(() => {
     const request = window.indexedDB.open('todo');
     request.onerror = function (event: any) {
       console.log(event);
@@ -51,11 +51,11 @@ const IndexedDB = () => {
       store.createIndex('name', 'name', { unique: false });
       store.createIndex('todoId', 'todoId', { unique: true });
     };
-  };
+  }, []);
 
   useEffect(() => {
     initDB();
-  }, []);
+  }, [initDB]);
 
   const getData = (keyWord?: string) => {
     const objectStore = db.current.transaction('list').objectStore('list');
@@ -66,7 +66,7 @@ const IndexedDB = () => {
 
     request.onsuccess = function (event) {
       const cursor = event.target.result;
-      
+
       if (cursor) {
         if (keyWord) {
           if (cursor.key.includes(keyWord)) {
