@@ -1,7 +1,7 @@
 import React from 'react';
 import ContentEditable from 'react-contenteditable';
 import sanitizeHtml from 'sanitize-html';
-import styles from './index.less';
+import styles from './index.module.less';
 
 const expreg = /\(\(/g;
 const htmlReg = /<[^>]+>/g;

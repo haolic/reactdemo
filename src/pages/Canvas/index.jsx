@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { draw } from './utils';
-import styles from './index.less';
+import styles from './index.module.less';
 
 const Canvas = () => {
   const canvasRef = useRef();
