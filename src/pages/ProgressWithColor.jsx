@@ -37,7 +37,7 @@ const ProgressWithColor = () => {
             zIndex,
           }}
         ></div>
-        <div className={styles.point}></div>
+        <div className={`${styles.point} ${styles.point2}`}></div>
 
         <div
           className={styles.innerLine}
@@ -54,6 +54,7 @@ const ProgressWithColor = () => {
             className={styles.progressPoint}
             style={{
               borderColor: progressColor,
+              backgroundColor: progressColor,
             }}
           ></div>
         </div>
