@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styles from './index.less';
+import styles from './index.module.less';
 import hljs from 'highlight.js/lib/core';
 import less from 'highlight.js/lib/languages/less';
 import 'highlight.js/styles/github.css';

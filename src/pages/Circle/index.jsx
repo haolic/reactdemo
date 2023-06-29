@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from './index.less';
+import styles from './index.module.less';
 
 const config = {
   size: 200,

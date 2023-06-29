@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './ProgressWithColor.less';
+import styles from './ProgressWithColor.module.less';
 
 const ProgressWithColor = () => {
   const [width, setWidth] = useState(0);
@@ -37,7 +37,7 @@ const ProgressWithColor = () => {
             zIndex,
           }}
         ></div>
-        <div className={styles.point}></div>
+        <div className={`${styles.point} ${styles.point2}`}></div>
 
         <div
           className={styles.innerLine}
@@ -54,6 +54,7 @@ const ProgressWithColor = () => {
             className={styles.progressPoint}
             style={{
               borderColor: progressColor,
+              backgroundColor: progressColor,
             }}
           ></div>
         </div>
