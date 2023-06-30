@@ -189,7 +189,7 @@ const IndexedDB = () => {
 
   return (
     <div className={styles.container}>
-      <h2>IndexedDb</h2>
+      <h1>IndexedDB</h1>
       <div className={styles.wrap}>
         <div className={styles.options}>
           <Space direction="vertical">

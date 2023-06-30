@@ -1,3 +1,4 @@
+import { Button, Space } from 'antd';
 import React, { useRef } from 'react';
 
 const config = {
@@ -46,8 +47,10 @@ const RandomCanvas = () => {
         }}
       >
         <canvas ref={canvasRef} width="800" height="600" />
-        <button onClick={go}>开始</button>
-        <button onClick={stop}>停止</button>
+        <Space>
+        <Button onClick={go}>开始</Button>
+        <Button onClick={stop}>暂停</Button>
+        </Space>
       </div>
     </div>
   );
