@@ -23,13 +23,13 @@ const ScreenCapture = () => {
 
   return (
     <div style={{ padding: '0 20px', textAlign: 'center' }}>
-      <video className={styles.video} autoPlay ref={videoRef}>
-        Your browser doesn't support HTML5.
-      </video>
-
       <Button id="start" onClick={start}>
         Start/Stop
       </Button>
+
+      <video className={styles.video} autoPlay ref={videoRef}>
+        Your browser doesn't support HTML5.
+      </video>
     </div>
   );
 };
