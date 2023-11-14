@@ -20,9 +20,7 @@ const Aside = () => {
     setSideMenuList(sideMenu);
 
     // 设置当前激活的菜单项
-    if (secondPath) {
-      setActiveItemPath(`/${secondPath}`);
-    }
+    setActiveItemPath(secondPath ? `/${secondPath}` : '');
 
     // 如果没有二级菜单，且有一级菜单，则默认跳转到一级菜单的第一个二级菜单
     if (!secondPath && sideMenu.length > 0) {
@@ -36,7 +34,7 @@ const Aside = () => {
     // 当前选中的菜单滚动到可视区域
     setTimeout(() => {
       const activeItem = document.getElementById(secondPath);
-      console.log(activeItem);
+
       activeItem?.scrollIntoView({
         block: 'center',
         behavior: 'smooth',
