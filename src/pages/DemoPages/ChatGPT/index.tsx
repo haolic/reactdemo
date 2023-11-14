@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const ChatGPT = () => {
   const [text, setText] = useState<string>();
-  const [gptRes, setGptRes] = useState('');
+  const [gptRes] = useState('');
 
   // app.all('*',function (req, res, next) {
   //   res.header('Access-Control-Allow-Origin', '*');

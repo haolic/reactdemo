@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref, useImperativeHandle, useRef } from 'react';
 
 const ReactUseImperativeHandle = (props: any, ref: Ref<any>) => {
-  useImperativeHandle(ref, (...params) => {
+  useImperativeHandle(ref, () => {
     return {
       xx: () => {
         console.log(123);

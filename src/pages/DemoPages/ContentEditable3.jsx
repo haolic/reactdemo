@@ -13,7 +13,7 @@ const MyComponent = () => {
     return div.childNodes;
   };
 
-  const handleChange = (evt) => {
+  const handleChange = () => {
     const childNodes = getValueInfo();
     console.log(childNodes);
   };
@@ -69,7 +69,7 @@ const MyComponent = () => {
 
   const onSelect = (e) => {
     insertWord(
-      `<span style="display: inline-block; background: #f90;" contentEditable="false">${e.target.value}</span>`,
+      `<span style="display: inline-block; background: #f90;" contentEditable="false">${e.target.value}</span>`
     );
     console.log(getValueInfo());
   };

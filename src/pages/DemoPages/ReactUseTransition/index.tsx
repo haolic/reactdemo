@@ -6,7 +6,9 @@ interface IProps {
 
 const Comp: React.FC<IProps> = (props) => {
   const { queryStr } = props;
-  for (let i = 0; i < 99999; i += 1) {}
+  for (let i = 0; i < 99999; i += 1) {
+    // do something
+  }
   return <div>{queryStr}</div>;
 };
 

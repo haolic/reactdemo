@@ -1,46 +1,46 @@
-import Lazyload from '@/pages/Lazyload';
-import Canvas from '@/pages/Canvas';
-import HueRotate from '@/pages/HueRotate';
-import ChatGPT from '@/pages/ChatGPT';
-import Circle from '@/pages/Circle';
-import ContentEditable from '@/pages/ContentEditable';
-import ContentEditable2 from '@/pages/ContentEditable2';
-import ContentEditable3 from '@/pages/ContentEditable3';
-import ContentEditableNpm from '@/pages/ContentEditableNpm';
-import CreateElement from '@/pages/CreateElement';
-import DataPropType from '@/pages/DataPropType';
-import Debounce from '@/pages/Debounce';
-import DebounceTest from '@/pages/DebounceTest';
-import GeneratorFn from '@/pages/GeneratorFn';
-import MarkdownImport from '@/pages/MarkdownImport';
-import Meteor from '@/pages/Meteor';
-import ObIntersection from '@/pages/ObIntersection';
-import Onepx from '@/pages/Onepx';
-import Pattern from '@/pages/Pattern';
-import PipeLine from '@/pages/PipeLine';
-import Position from '@/pages/Position';
-import Progress from '@/pages/Progress';
-import ProgressWithColor from '@/pages/ProgressWithColor';
-import Promise from '@/pages/Promise';
-import RandomCanvas from '@/pages/RandomCanvas';
-import ReactBeautifulDnd from '@/pages/ReactBeautifulDnd';
-import ReactCountup from '@/pages/ReactCountup';
-import ReactUseImperativeHandle from '@/pages/ReactUseImperativeHandle';
-import ReactUseTransition from '@/pages/ReactUseTransition';
-import RenderToString from '@/pages/RenderToString';
-import Resize from '@/pages/Resize';
-import SAnimate from '@/pages/SAnimate';
-import ScreenCapture from '@/pages/ScreenCapture';
-import Suanfa from '@/pages/Suanfa';
-import Suanfa2 from '@/pages/Suanfa2';
-import Suanfa3 from '@/pages/Suanfa3';
-import SvgPathCircle from '@/pages/SvgPathCircle';
-import Test from '@/pages/Test';
-import ToString from '@/pages/ToString';
-import TransitionCard from '@/pages/TransitionCard';
-import Worker from '@/pages/Worker';
-import html from '@/pages/html';
-import zCamera from '@/pages/zCamera';
+import Lazyload from '@/pages/DemoPages/Lazyload';
+import Canvas from '@/pages/DemoPages/Canvas';
+import HueRotate from '@/pages/DemoPages/HueRotate';
+import ChatGPT from '@/pages/DemoPages/ChatGPT';
+import Circle from '@/pages/DemoPages/Circle';
+import ContentEditable from '@/pages/DemoPages/ContentEditable';
+import ContentEditable2 from '@/pages/DemoPages/ContentEditable2';
+import ContentEditable3 from '@/pages/DemoPages/ContentEditable3';
+import ContentEditableNpm from '@/pages/DemoPages/ContentEditableNpm';
+import CreateElement from '@/pages/DemoPages/CreateElement';
+import DataPropType from '@/pages/DemoPages/DataPropType';
+import Debounce from '@/pages/DemoPages/Debounce';
+import DebounceTest from '@/pages/DemoPages/DebounceTest';
+import GeneratorFn from '@/pages/DemoPages/GeneratorFn';
+import MarkdownImport from '@/pages/DemoPages/MarkdownImport';
+import Meteor from '@/pages/DemoPages/Meteor';
+import ObIntersection from '@/pages/DemoPages/ObIntersection';
+import Onepx from '@/pages/DemoPages/Onepx';
+import Pattern from '@/pages/DemoPages/Pattern';
+import PipeLine from '@/pages/DemoPages/PipeLine';
+import Position from '@/pages/DemoPages/Position';
+import Progress from '@/pages/DemoPages/Progress';
+import ProgressWithColor from '@/pages/DemoPages/ProgressWithColor';
+import Promise from '@/pages/DemoPages/Promise';
+import RandomCanvas from '@/pages/DemoPages/RandomCanvas';
+import ReactBeautifulDnd from '@/pages/DemoPages/ReactBeautifulDnd';
+import ReactCountup from '@/pages/DemoPages/ReactCountup';
+import ReactUseImperativeHandle from '@/pages/DemoPages/ReactUseImperativeHandle';
+import ReactUseTransition from '@/pages/DemoPages/ReactUseTransition';
+import RenderToString from '@/pages/DemoPages/RenderToString';
+import Resize from '@/pages/DemoPages/Resize';
+import SAnimate from '@/pages/DemoPages/SAnimate';
+import ScreenCapture from '@/pages/DemoPages/ScreenCapture';
+import Suanfa from '@/pages/DemoPages/Suanfa';
+import Suanfa2 from '@/pages/DemoPages/Suanfa2';
+import Suanfa3 from '@/pages/DemoPages/Suanfa3';
+import SvgPathCircle from '@/pages/DemoPages/SvgPathCircle';
+import Test from '@/pages/DemoPages/Test';
+import ToString from '@/pages/DemoPages/ToString';
+import TransitionCard from '@/pages/DemoPages/TransitionCard';
+import Worker from '@/pages/DemoPages/Worker';
+import html from '@/pages/DemoPages/html';
+import zCamera from '@/pages/DemoPages/zCamera';
 import Layout from '@/layout';
 
 export default {
@@ -76,7 +76,7 @@ export default {
     { name: '去抖动', path: 'Debounce', Component: Debounce },
     { name: '去抖动测试', path: 'DebounceTest', Component: DebounceTest },
     { name: '生成器函数', path: 'GeneratorFn', Component: GeneratorFn },
-    { name: HueRotate.label, path: 'HueRotate', Component: HueRotate },
+    { name: '色调旋转', path: 'HueRotate', Component: HueRotate },
     { name: '懒加载', path: 'Lazyload', Component: Lazyload },
     {
       name: '导入markdown',

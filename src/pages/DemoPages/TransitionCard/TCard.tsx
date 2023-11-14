@@ -19,15 +19,18 @@ const TCard = (props: TCardProps) => {
   const { position, name, status, unit, value, align, delayRatio } = props;
 
   const [isShow, setIsShow] = useState(false);
-  const tId = useRef<NodeJS.Timeout>();
+  const tId = useRef<number>();
 
   useEffect(() => {
-    tId.current = setTimeout(() => {
-      setIsShow(true);
-    }, 1000 * (delayRatio || 0));
+    tId.current = window.setTimeout(
+      () => {
+        setIsShow(true);
+      },
+      1000 * (delayRatio || 0)
+    );
 
     return () => {
-      clearTimeout(tId.current as NodeJS.Timeout);
+      clearTimeout(tId.current);
     };
   }, [delayRatio]);
 

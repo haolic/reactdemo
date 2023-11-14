@@ -6,9 +6,6 @@ const ScreenCapture = () => {
 
   const start = async () => {
     if (videoRef.current.srcObject) {
-      videoRef.current.srcObject.getTracks().forEach((track) => {
-        track.stop();
-      });
       videoRef.current.srcObject = null;
     } else {
       videoRef.current.srcObject = await navigator.mediaDevices.getDisplayMedia(
