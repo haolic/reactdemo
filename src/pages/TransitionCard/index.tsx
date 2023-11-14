@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import TCard from './TCard';
 import './index.less';
 
@@ -116,14 +116,14 @@ const data2 = [
 ];
 
 const TransitionCard = () => {
-  const tid = useRef<NodeJS.Timeout>();
+  const tid = useRef<number | null>();
   const [renderData, setRenderData] = useState(data);
   useEffect(() => {
     const arr = [data, data2];
     let i = 0;
 
     const loop = () => {
-      tid.current = setTimeout(() => {
+      tid.current = window.setTimeout(() => {
         if (i) {
           i = 0;
         } else {
