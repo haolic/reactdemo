@@ -9,7 +9,7 @@ const Circle = () => {
   const { size } = config;
   const [rotate, setRotate] = useState(0);
   useEffect(() => {
-    if (rotate < 350) {
+    if (rotate < 360) {
       requestAnimationFrame(() => {
         setRotate(rotate + 5);
       });

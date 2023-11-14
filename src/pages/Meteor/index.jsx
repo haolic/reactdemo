@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './index.module.less';
 
 const Meteor = () => {
@@ -6,7 +5,7 @@ const Meteor = () => {
     <div className={styles.wrap}>
       <div className={styles.inner}>
         <div className={styles.innerIconWrap}>
-          <i className="iconfont">&#xe615;</i>
+          <span>流星</span>
         </div>
       </div>
     </div>

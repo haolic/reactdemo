@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Button, Input } from 'antd';
 import axios from 'axios';
 
 const ChatGPT = () => {
@@ -24,8 +23,8 @@ const ChatGPT = () => {
 
   return (
     <div>
-      <Input onChange={(e) => setText(e.target.value)} />
-      <Button onClick={onClick}>发送</Button>
+      <input onChange={(e) => setText(e.target.value)} />
+      <button onClick={onClick}>发送</button>
       <div
         dangerouslySetInnerHTML={{
           __html: gptRes,

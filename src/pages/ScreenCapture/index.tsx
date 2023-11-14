@@ -1,4 +1,3 @@
-import { Button } from 'antd';
 import { useRef } from 'react';
 import styles from './index.module.less';
 
@@ -23,9 +22,9 @@ const ScreenCapture = () => {
 
   return (
     <div style={{ padding: '0 20px', textAlign: 'center' }}>
-      <Button id="start" onClick={start}>
+      <button id="start" onClick={start}>
         Start/Stop
-      </Button>
+      </button>
 
       <video className={styles.video} autoPlay ref={videoRef}>
         Your browser doesn't support HTML5.

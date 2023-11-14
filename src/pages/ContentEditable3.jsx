@@ -1,6 +1,4 @@
-import React, { useRef } from 'react';
-// import ContentEditable from 'react-contenteditable';
-import { Select } from 'antd';
+import { useRef } from 'react';
 
 const MyComponent = () => {
   const contentEditable = useRef();
@@ -69,9 +67,9 @@ const MyComponent = () => {
     }
   };
 
-  const onSelect = (v) => {
+  const onSelect = (e) => {
     insertWord(
-      `<span style="display: inline-block; background: #f90;" contentEditable="false">${v}</span>`,
+      `<span style="display: inline-block; background: #f90;" contentEditable="false">${e.target.value}</span>`,
     );
     console.log(getValueInfo());
   };
@@ -107,10 +105,10 @@ const MyComponent = () => {
         点击
       </button>
       <div>
-        <Select onChange={onSelect} style={{ width: 100 }}>
-          <Select.Option value="xx">xxx</Select.Option>
-          <Select.Option value="vv">vv</Select.Option>
-        </Select>
+        <select onChange={onSelect} style={{ width: 100 }}>
+          <option value="xx">xxx</option>
+          <option value="vv">vv</option>
+        </select>
       </div>
     </div>
   );

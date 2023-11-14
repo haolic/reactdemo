@@ -25,8 +25,8 @@
     box-sizing: border-box;
     width: calc(100% - @w);
     height: calc(100% - @w);
-    margin-left: @w / 2;
-    margin-top: @w / 2;
+    margin-left: calc(@w / 2);
+    margin-top: calc(@w / 2);
     border-radius: 50%;
     position: absolute;
     z-index: 9;
@@ -63,8 +63,8 @@
     position: absolute;
     left: 95px;
     top: 0;
-    height: @w / 2;
-    width: @w / 2;
+    height: calc(@w / 2);
+    width: calc(@w / 2);
     border-radius: 50%;
     background-image: @color;
     transform-origin: 4.6px 100px 0;
@@ -73,8 +73,8 @@
     position: absolute;
     left: 95px;
     bottom: 0;
-    height: @w / 2;
-    width: @w / 2;
+    height:calc(@w / 2);
+    width:calc(@w / 2);
     border-radius: 50%;
     background-image: @color;
     transform-origin: 4.6px -90px 0;
