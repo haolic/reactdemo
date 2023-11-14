@@ -1,29 +1,8 @@
-import menu from './menu.config';
-import Layout from '../layout';
-import { Provider } from 'react-redux';
-import NotFound from '../components/404';
-import store from '../store';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import routes from './routes';
 
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+const router = createBrowserRouter(routes);
 
-export default function App() {
-  return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route path="/" element={<Navigate to={menu[0].path} />} />
-            {menu.map((item) => {
-              const Comp = item.component;
-              if (!Comp) return null;
-              return (
-                <Route key={item.path} path={item.path} element={<Comp />} />
-              );
-            })}
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </Provider>
-  );
-}
+export default () => {
+  return <RouterProvider router={router} />;
+};

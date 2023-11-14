@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ContentEditable = () => {
   const input = (e) => {
     e.persist();

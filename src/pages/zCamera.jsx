@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 
 /**
  * navigator.mediaDevices可以使用的情况：
@@ -10,31 +10,34 @@ import React, { useRef, useEffect } from 'react';
 const Camera = () => {
   const ref = useRef();
   useEffect(() => {
-    window.navigator.mediaDevices
+    let stream;
+
+    navigator.mediaDevices
       .getUserMedia({
         video: true,
       })
-      .then((stream) => {
+      .then((mediaStream) => {
+        stream = mediaStream;
         if (!ref.current) {
           return;
         }
         ref.current.srcObject = stream;
-        ref.current.onloadedmetadata = function (e) {
+        ref.current.onloadedmetadata = function () {
           ref.current.play();
         };
       })
       .catch((err) => {
         console.error(err);
       });
-    const stop = () => {
-      if (ref.current && ref.current.srcObject) {
-        ref.current.srcObject.getVideoTracks().forEach(function (track) {
+
+    return () => {
+      // 关闭摄像头
+      if (stream) {
+        let tracks = stream.getTracks();
+        tracks.forEach((track) => {
           track.stop();
         });
       }
-    };
-    return () => {
-      stop();
     };
   }, []);
   return (

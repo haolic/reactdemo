@@ -14,7 +14,7 @@ const ChatGPT = () => {
   // });
 
   const onClick = async () => {
-    const res = await axios.get('http://52.91.13.155:3000/api/chat', {
+    const res = await axios.get('http://x.x.x.x:3000/api/chatstring', {
       input: text,
     } as any);
     console.log(res);
