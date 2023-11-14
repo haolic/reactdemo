@@ -1,7 +1,7 @@
-import Layout from '@/layout';
 import demoRoutes from './demo-routes';
 import React from 'react';
 import homeRoutes from './home-routes';
+import threejsRoutes from './threejs-routes';
 
 export interface RouteItem {
   path: string;
@@ -10,13 +10,4 @@ export interface RouteItem {
   children?: RouteItem[];
 }
 
-export default [
-  homeRoutes,
-  demoRoutes,
-  {
-    path: '/p5',
-    name: 'P5js',
-    Component: Layout,
-    children: [],
-  },
-] as RouteItem[];
+export default [homeRoutes, demoRoutes, threejsRoutes] as RouteItem[];
