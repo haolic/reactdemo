@@ -29,3 +29,7 @@ a {
 a:visited {
   color: initial;
 }
+
+img {
+  vertical-align: top;
+}

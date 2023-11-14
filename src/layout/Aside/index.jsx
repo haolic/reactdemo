@@ -49,7 +49,7 @@ const Aside = () => {
 
   return (
     <div className={styles.wrap}>
-      {sideMenuList.map((el) => {
+      {sideMenuList.map((el, idx) => {
         return (
           <div
             className={classnames(styles.item, {
@@ -60,7 +60,7 @@ const Aside = () => {
             title={el.name}
           >
             <Link to={el.path} onClick={() => setActiveItemPath(el.path)}>
-              {el.name}
+              {idx + 1}. {el.name}
             </Link>
           </div>
         );
