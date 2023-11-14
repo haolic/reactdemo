@@ -12,9 +12,10 @@ const ContentEditable = () => {
       style={{ background: '#b37feb', width: '100%', height: '100%' }}
       contentEditable
       onInput={input}
-    >
-      我不是输入框，但输入东西试试？
-    </div>
+      dangerouslySetInnerHTML={{
+        __html: '我不是输入框，但输入东西试试？',
+      }}
+    ></div>
   );
 };
 

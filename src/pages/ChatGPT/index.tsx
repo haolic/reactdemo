@@ -34,6 +34,4 @@ const ChatGPT = () => {
   );
 };
 
-ChatGPT.title = 'GhatGPT';
-
 export default ChatGPT;

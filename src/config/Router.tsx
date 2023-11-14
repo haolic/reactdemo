@@ -15,6 +15,7 @@ export default function App() {
             <Route path="/" element={<Navigate to={menu[0].path} />} />
             {menu.map((item) => {
               const Comp = item.component;
+              if (!Comp) return null;
               return (
                 <Route key={item.path} path={item.path} element={<Comp />} />
               );
