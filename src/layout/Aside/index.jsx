@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import menu from '../config/menu.config';
-import styles from './Header.module.less';
+import menu from '@/config/menu.config';
+import styles from './index.module.less';
 
-const Header = () => {
+const Aside = () => {
   const [activeItem, setActiveItem] = useState(menu[0].path);
   useEffect(() => {
     if (window.location.pathname === '/') {
@@ -48,4 +48,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Aside;

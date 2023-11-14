@@ -1,5 +1,5 @@
 import menu from './menu.config';
-import Layout from '../layout/Layout';
+import Layout from '../layout';
 import { Provider } from 'react-redux';
 import NotFound from '../components/404';
 import store from '../store';
