@@ -21,6 +21,11 @@ const Aside = () => {
 
     // 设置当前激活的菜单项
     setActiveItemPath(secondPath ? `/${secondPath}` : '');
+    // 如果没有一级菜单，则默认跳转到第一个一级菜单
+
+    if (!firstPath) {
+      navigate(`/${routes[0].path}`);
+    }
 
     // 如果没有二级菜单，且有一级菜单，则默认跳转到一级菜单的第一个二级菜单
     if (!secondPath && sideMenu.length > 0) {

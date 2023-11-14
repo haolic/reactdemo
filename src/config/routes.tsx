@@ -1,6 +1,7 @@
 import Layout from '@/layout';
 import demoRoutes from './demo-routes';
 import React from 'react';
+import homeRoutes from './home-routes';
 
 export interface RouteItem {
   path: string;
@@ -10,8 +11,8 @@ export interface RouteItem {
 }
 
 export default [
+  homeRoutes,
   demoRoutes,
-
   {
     path: '/p5',
     name: 'P5js',

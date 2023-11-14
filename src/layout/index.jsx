@@ -6,9 +6,9 @@ import styles from './index.module.less';
 
 const Layout = () => {
   return (
-    <div>
+    <div className={styles.wrap}>
       <Header />
-      <div className={styles.wrap}>
+      <div className={styles.content}>
         <Aside />
         <Content>
           <Outlet />

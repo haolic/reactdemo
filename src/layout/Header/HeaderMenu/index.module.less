@@ -1,0 +1,26 @@
+.menuWrap {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  padding-inline: 24px;
+  height: 100%;
+}
+
+.item {
+  padding-inline: 32px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s linear;
+  font-weight: bold;
+
+  &:hover {
+    background-color: rgba(255, 186, 82, 0.7);
+  }
+}
+
+.active {
+  background-color: rgba(255, 186, 82, 0.7);
+}
