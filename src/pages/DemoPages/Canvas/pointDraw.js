@@ -3,6 +3,8 @@ export default class PointDraw {
   canvas; // 画布。
   ctx; // 画布上下文。
   canPointerDraw = false; // 是否鼠标可以画。
+  lastPos = { x: 0, y: 0 }; // 最后鼠标位置
+  lastSpeed = 0; // 最后鼠标速度
 
   constructor(canvasWrap) {
     this.canvasWrap = canvasWrap;
@@ -12,23 +14,36 @@ export default class PointDraw {
 
   eventBind() {
     const { canvas, ctx } = this;
-    canvas.addEventListener('mousedown', e => {
-      ctx.beginPath();
+
+    canvas.addEventListener('mousedown', (e) => {
       const { left, top } = canvas.getBoundingClientRect();
-      const [x, y] = [e.clientX - left, e.clientY - top];
-      ctx.moveTo(x, y);
-      ctx.lineWidth = 0.5;
+      this.lastPos = { x: e.clientX - left, y: e.clientY - top };
       this.canPointerDraw = true;
     });
-    document.addEventListener('mousemove', e => {
+
+    document.addEventListener('mousemove', (e) => {
       if (this.canPointerDraw) {
         const { left, top } = canvas.getBoundingClientRect();
         const [x, y] = [e.clientX - left, e.clientY - top];
+
+        const dx = x - this.lastPos.x;
+        const dy = y - this.lastPos.y;
+        this.lastSpeed = Math.sqrt(dx * dx + dy * dy);
+
+        ctx.lineWidth = Math.max(Math.min(15 - this.lastSpeed, 15), 2);
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+
+        ctx.beginPath();
+        ctx.moveTo(this.lastPos.x, this.lastPos.y);
         ctx.lineTo(x, y);
         ctx.stroke();
+
+        this.lastPos = { x, y };
       }
     });
-    document.addEventListener('mouseup', e => {
+
+    document.addEventListener('mouseup', () => {
       if (this.canPointerDraw) {
         this.canPointerDraw = false;
       }
@@ -49,7 +64,6 @@ export default class PointDraw {
     const ctx = canvas.getContext('2d');
     var devicePixelRatio = window.devicePixelRatio || 1;
 
-    // 画布像素比，表述了画布实际用几个像素来渲染1px;
     var backingStoreRatio = ctx.backingStorePixelRatio || 1;
     var ratio = devicePixelRatio / backingStoreRatio;
     canvas.width = width * ratio;
@@ -57,6 +71,7 @@ export default class PointDraw {
     ctx.scale(ratio, ratio);
     canvas.style.transform = `scale(${1 / ratio}, ${1 / ratio})`;
     canvas.style.transformOrigin = '0 0 0';
+
     this.ctx = ctx;
     this.canvas = canvas;
     this.canvasWrap.appendChild(this.canvas);
