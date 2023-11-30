@@ -42,6 +42,7 @@ import Worker from '@/pages/DemoPages/Worker';
 import html from '@/pages/DemoPages/html';
 import zCamera from '@/pages/DemoPages/zCamera';
 import Layout from '@/layout';
+import PositionLock from '@/pages/DemoPages/PositionLock';
 
 export default {
   path: '/demo',
@@ -131,5 +132,6 @@ export default {
     { name: 'WEB工作者', path: 'Worker', Component: Worker },
     { name: 'HTML', path: 'html', Component: html },
     { name: '摄像头', path: 'zCamera', Component: zCamera },
+    { name: '位置锁定', path: 'position-lock', Component: PositionLock },
   ],
 };
