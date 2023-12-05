@@ -43,13 +43,19 @@ import html from '@/pages/DemoPages/html';
 import zCamera from '@/pages/DemoPages/zCamera';
 import Layout from '@/layout';
 import PositionLock from '@/pages/DemoPages/PositionLock';
+import StartingStyle from '@/pages/DemoPages/StartingStyle';
 
 export default {
   path: '/demo',
   name: 'DEMO',
   Component: Layout,
   children: [
-    { name: '画布', path: 'Canvas', Component: Canvas, index: true },
+    {
+      name: '起始样式',
+      path: 'StartingStyle',
+      Component: StartingStyle,
+      index: true,
+    },
     { name: '聊天生成器', path: 'ChatGPT', Component: ChatGPT },
     { name: '圆形', path: 'Circle', Component: Circle },
     {

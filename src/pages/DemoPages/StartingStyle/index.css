@@ -1,0 +1,24 @@
+.starting-block {
+  transition: 1s;
+  color: red;
+  transform: scale(1);
+  width: 100px;
+  height: 100px;
+  margin: 24px;
+  border: 1px solid;
+  overflow: hidden;
+  padding: 8px;
+  text-overflow: ellipsis;
+}
+
+@starting-style {
+  .starting-block {
+    color: black;
+    transform: scale(0);
+  }
+}
+
+.starting-wrap {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
