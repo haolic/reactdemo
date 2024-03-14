@@ -44,6 +44,7 @@ import zCamera from '@/pages/DemoPages/zCamera';
 import Layout from '@/layout';
 import PositionLock from '@/pages/DemoPages/PositionLock';
 import StartingStyle from '@/pages/DemoPages/StartingStyle';
+import HalfCirclePage from '@/pages/DemoPages/HalfCirclePage';
 
 export default {
   path: '/demo',
@@ -103,6 +104,7 @@ export default {
       Component: ProgressWithColor,
     },
     { name: '承诺', path: 'Promise', Component: Promise },
+    { name: '画布', path: 'Canvas', Component: Canvas },
     { name: '随机画布', path: 'RandomCanvas', Component: RandomCanvas },
     {
       name: '漂亮的拖拽',
@@ -139,5 +141,6 @@ export default {
     { name: 'HTML', path: 'html', Component: html },
     { name: '摄像头', path: 'zCamera', Component: zCamera },
     { name: '位置锁定', path: 'position-lock', Component: PositionLock },
+    { name: '虚线半圆', path: 'half-circle', Component: HalfCirclePage },
   ],
 };
