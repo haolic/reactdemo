@@ -45,6 +45,7 @@ import Layout from '@/layout';
 import PositionLock from '@/pages/DemoPages/PositionLock';
 import StartingStyle from '@/pages/DemoPages/StartingStyle';
 import HalfCirclePage from '@/pages/DemoPages/HalfCirclePage';
+import QuillRichText from '@/pages/DemoPages/QuillRichText';
 
 export default {
   path: '/demo',
@@ -52,10 +53,15 @@ export default {
   Component: Layout,
   children: [
     {
+      name: 'Quill富文本编辑器',
+      path: 'quill-editor',
+      Component: QuillRichText,
+      index: true,
+    },
+    {
       name: '起始样式',
       path: 'StartingStyle',
       Component: StartingStyle,
-      index: true,
     },
     { name: '聊天生成器', path: 'ChatGPT', Component: ChatGPT },
     { name: '圆形', path: 'Circle', Component: Circle },
