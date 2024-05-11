@@ -16,8 +16,13 @@ const QuillRichText = () => {
   }, []);
   return (
     <div>
-      <div>quill富文本编辑器</div>
-      <div id="quill-dom"></div>
+      <h3>quill富文本编辑器</h3>
+      <div
+        id="quill-dom"
+        style={{
+          minHeight: 300,
+        }}
+      ></div>
     </div>
   );
 };
