@@ -46,6 +46,7 @@ import PositionLock from '@/pages/DemoPages/PositionLock';
 import StartingStyle from '@/pages/DemoPages/StartingStyle';
 import HalfCirclePage from '@/pages/DemoPages/HalfCirclePage';
 import QuillRichText from '@/pages/DemoPages/QuillRichText';
+import Sort from '@/pages/DemoPages/Sort';
 
 export default {
   path: '/demo',
@@ -53,10 +54,15 @@ export default {
   Component: Layout,
   children: [
     {
+      name: '排序算法',
+      path: 'sort',
+      Component: Sort,
+      index: true,
+    },
+    {
       name: 'Quill富文本编辑器',
       path: 'quill-editor',
       Component: QuillRichText,
-      index: true,
     },
     {
       name: '起始样式',
