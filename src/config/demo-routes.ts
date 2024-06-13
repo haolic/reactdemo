@@ -47,6 +47,7 @@ import StartingStyle from '@/pages/DemoPages/StartingStyle';
 import HalfCirclePage from '@/pages/DemoPages/HalfCirclePage';
 import QuillRichText from '@/pages/DemoPages/QuillRichText';
 import Sort from '@/pages/DemoPages/Sort';
+import MortgageCalculation from '@/pages/DemoPages/MortgageCalculation';
 
 export default {
   path: '/demo',
@@ -154,5 +155,10 @@ export default {
     { name: '摄像头', path: 'zCamera', Component: zCamera },
     { name: '位置锁定', path: 'position-lock', Component: PositionLock },
     { name: '虚线半圆', path: 'half-circle', Component: HalfCirclePage },
+    {
+      name: '房贷计算',
+      path: 'mortgage-calculation',
+      Component: MortgageCalculation,
+    },
   ],
 };
