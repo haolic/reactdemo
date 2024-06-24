@@ -1,7 +1,6 @@
 import Lazyload from '@/pages/DemoPages/Lazyload';
 import Canvas from '@/pages/DemoPages/Canvas';
 import HueRotate from '@/pages/DemoPages/HueRotate';
-import ChatGPT from '@/pages/DemoPages/ChatGPT';
 import Circle from '@/pages/DemoPages/Circle';
 import ContentEditable from '@/pages/DemoPages/ContentEditable';
 import ContentEditable2 from '@/pages/DemoPages/ContentEditable2';
@@ -14,14 +13,12 @@ import DebounceTest from '@/pages/DemoPages/DebounceTest';
 import GeneratorFn from '@/pages/DemoPages/GeneratorFn';
 import MarkdownImport from '@/pages/DemoPages/MarkdownImport';
 import Meteor from '@/pages/DemoPages/Meteor';
-import ObIntersection from '@/pages/DemoPages/ObIntersection';
 import Onepx from '@/pages/DemoPages/Onepx';
 import Pattern from '@/pages/DemoPages/Pattern';
 import PipeLine from '@/pages/DemoPages/PipeLine';
 import Position from '@/pages/DemoPages/Position';
 import Progress from '@/pages/DemoPages/Progress';
 import ProgressWithColor from '@/pages/DemoPages/ProgressWithColor';
-import Promise from '@/pages/DemoPages/Promise';
 import RandomCanvas from '@/pages/DemoPages/RandomCanvas';
 import ReactBeautifulDnd from '@/pages/DemoPages/ReactBeautifulDnd';
 import ReactCountup from '@/pages/DemoPages/ReactCountup';
@@ -35,7 +32,6 @@ import Suanfa from '@/pages/DemoPages/Suanfa';
 import Suanfa2 from '@/pages/DemoPages/Suanfa2';
 import Suanfa3 from '@/pages/DemoPages/Suanfa3';
 import SvgPathCircle from '@/pages/DemoPages/SvgPathCircle';
-import Test from '@/pages/DemoPages/Test';
 import ToString from '@/pages/DemoPages/ToString';
 import TransitionCard from '@/pages/DemoPages/TransitionCard';
 import Worker from '@/pages/DemoPages/Worker';
@@ -48,6 +44,7 @@ import HalfCirclePage from '@/pages/DemoPages/HalfCirclePage';
 import QuillRichText from '@/pages/DemoPages/QuillRichText';
 import Sort from '@/pages/DemoPages/Sort';
 import MortgageCalculation from '@/pages/DemoPages/MortgageCalculation';
+import AutoLayout from '@/pages/DemoPages/AutoLayout';
 
 export default {
   path: '/demo',
@@ -55,10 +52,14 @@ export default {
   Component: Layout,
   children: [
     {
+      name: '自动布局',
+      path: 'auto-layout',
+      Component: AutoLayout,
+    },
+    {
       name: '排序算法',
       path: 'sort',
       Component: Sort,
-      index: true,
     },
     {
       name: 'Quill富文本编辑器',
@@ -70,7 +71,6 @@ export default {
       path: 'StartingStyle',
       Component: StartingStyle,
     },
-    { name: '聊天生成器', path: 'ChatGPT', Component: ChatGPT },
     { name: '圆形', path: 'Circle', Component: Circle },
     {
       name: '内容编辑器',
@@ -105,7 +105,6 @@ export default {
       Component: MarkdownImport,
     },
     { name: '流星', path: 'Meteor', Component: Meteor },
-    { name: '交叉观察', path: 'ObIntersection', Component: ObIntersection },
     { name: '1px', path: 'Onepx', Component: Onepx },
     { name: '模式', path: 'Pattern', Component: Pattern },
     { name: '管道线', path: 'PipeLine', Component: PipeLine },
@@ -116,7 +115,6 @@ export default {
       path: 'ProgressWithColor',
       Component: ProgressWithColor,
     },
-    { name: '承诺', path: 'Promise', Component: Promise },
     { name: '画布', path: 'Canvas', Component: Canvas },
     { name: '随机画布', path: 'RandomCanvas', Component: RandomCanvas },
     {
@@ -147,7 +145,6 @@ export default {
     { name: '算法2', path: 'Suanfa2', Component: Suanfa2 },
     { name: '算法3', path: 'Suanfa3', Component: Suanfa3 },
     { name: 'SVG路径圆', path: 'SvgPathCircle', Component: SvgPathCircle },
-    { name: '测试', path: 'Test', Component: Test },
     { name: '字符串', path: 'ToString', Component: ToString },
     { name: '过渡卡片', path: 'TransitionCard', Component: TransitionCard },
     { name: 'WEB工作者', path: 'Worker', Component: Worker },
