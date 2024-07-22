@@ -58,10 +58,12 @@ const Aside = () => {
             key={el.path}
             id={el.path}
             title={el.name}
+            onClick={() => {
+              setActiveItemPath(el.path);
+              navigate(`${el.path}`);
+            }}
           >
-            <Link to={el.path} onClick={() => setActiveItemPath(el.path)}>
-              {idx + 1}. {el.name}
-            </Link>
+            {idx + 1}. {el.name}
           </div>
         );
       })}
