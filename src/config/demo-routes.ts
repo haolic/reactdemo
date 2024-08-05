@@ -45,6 +45,7 @@ import QuillRichText from '@/pages/DemoPages/QuillRichText';
 import Sort from '@/pages/DemoPages/Sort';
 import MortgageCalculation from '@/pages/DemoPages/MortgageCalculation';
 import AutoLayout from '@/pages/DemoPages/AutoLayout';
+import SVGShadow from '@/pages/DemoPages/SVGShadow';
 
 export default {
   path: '/demo',
@@ -72,6 +73,7 @@ export default {
       Component: StartingStyle,
     },
     { name: '圆形', path: 'Circle', Component: Circle },
+    { name: 'SVG阴影', path: 'SVGShadow', Component: SVGShadow },
     {
       name: '内容编辑器',
       path: 'ContentEditable',
