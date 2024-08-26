@@ -1,0 +1,40 @@
+.job-item {
+  border: 1px solid #e7e7e7;
+  height: 32px;
+  width: 150px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  position: relative;
+  margin: 20px 40px;
+  .svg {
+    width: calc(100% + 82px);
+    height: calc(100% + 56px);
+    position: absolute;
+    left: -41px;
+    top: -56px;
+  }
+  .line {
+    fill: none;
+    stroke: #e39d9d;
+    stroke-width: 1;
+    transition: all .2s;
+  }
+  .job-status {
+    width: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+  }
+  .job-name {
+    width: 42px;
+    text-align: center;
+  }
+  .job-time {
+    flex: 1;
+    text-align: right;
+    padding-right: 10px;
+  }
+}

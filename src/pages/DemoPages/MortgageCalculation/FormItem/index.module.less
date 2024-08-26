@@ -1,0 +1,14 @@
+.formItem {
+  display: flex;
+  column-gap: 10px;
+}
+
+.label {
+  width: 100px;
+  text-align: right;
+  white-space: nowrap;
+  &::after {
+    content: '*';
+    color: red;
+  }
+}

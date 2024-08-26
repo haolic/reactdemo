@@ -1,0 +1,39 @@
+.btns {
+  display: flex;
+  column-gap: 16px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  padding: 4px 8px;
+  min-width: 80px;
+  cursor: pointer;
+}
+
+.item {
+  background-color: #fff;
+  width: 300px;
+  position: absolute;
+  bottom: 0;
+  transition: left 0.2s ease-in-out;
+}
+
+.wrap {
+  display: flex;
+  height: calc(100vh - 150px);
+  overflow: hidden;
+  position: relative;
+  align-items: end;
+  justify-content: space-between;
+  column-gap: 1px;
+  background-color: black;
+  border: 10px solid black;
+}
+
+.current {
+  background-color: #f90;
+}
+
+.currentCompare {
+  background-color: #f09;
+}

@@ -1,0 +1,46 @@
+.btn {
+  width: 200px;
+  height: 50px;
+  background: #8baeff;
+  border-radius: 4px;
+  padding: 20px;
+  margin: 10px 0;
+  .colorRotate();
+}
+
+.colorRotate {
+  animation: colorTrans 5s linear infinite;
+}
+.innerBtn {
+  background: rgb(0, 89, 255);
+  height: 100%;
+  width: 50%;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pre {
+  .colorRotate();
+  :global {
+    code {
+      background: #ffb08b;
+    }
+  }
+}
+
+@keyframes colorTrans {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(180deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}

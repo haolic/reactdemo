@@ -1,0 +1,82 @@
+.wrap {
+  font-family: '霞鹜文楷';
+  input,
+  button,
+  select {
+    font-family: '霞鹜文楷';
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 10px;
+}
+.prepaymentForm {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 10px;
+  border-bottom: 1px solid #c7c7c7;
+  padding-bottom: 24px;
+}
+
+.prepaymentLabel {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.submitBtn {
+  width: 100px;
+}
+
+.addBtn {
+  margin-top: 24px;
+}
+
+.deleteBtn {
+  color: red;
+  margin-left: 24px;
+}
+
+.table {
+  font-family: '霞鹜文楷等宽';
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  border: 1px solid #c7c7c7;
+  box-shadow: 0 2px 8px #f0f1f2;
+  tr {
+    height: 32px;
+    text-align: right;
+    &:nth-child(2n) {
+      background-color: #f0f0f0;
+    }
+    &.prepaymentRow {
+      font-weight: bold;
+      color: #f90;
+      background-color: antiquewhite;
+    }
+  }
+
+  td {
+    padding: 0 4px;
+  }
+
+  thead {
+    tr {
+      background-color: #666671;
+      color: #fff;
+    }
+  }
+}
+
+.tablePlaceholder {
+  text-align: center;
+  opacity: 0.5;
+}
+
+.actions {
+  display: flex;
+  column-gap: 24px;
+  margin-top: 24px;
+}
