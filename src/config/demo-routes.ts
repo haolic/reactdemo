@@ -46,7 +46,6 @@ import Sort from '@/pages/DemoPages/Sort';
 import MortgageCalculation from '@/pages/DemoPages/MortgageCalculation';
 import AutoLayout from '@/pages/DemoPages/AutoLayout';
 import SVGShadow from '@/pages/DemoPages/SVGShadow';
-import CuixiSheet from '@/pages/DemoPages/CuixiSheet';
 
 export default {
   path: '/demo',
