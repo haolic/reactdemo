@@ -46,12 +46,18 @@ import Sort from '@/pages/DemoPages/Sort';
 import MortgageCalculation from '@/pages/DemoPages/MortgageCalculation';
 import AutoLayout from '@/pages/DemoPages/AutoLayout';
 import SVGShadow from '@/pages/DemoPages/SVGShadow';
+import Motion from '@/pages/DemoPages/Motion';
 
 export default {
   path: '/demo',
   name: 'DEMO',
   Component: Layout,
   children: [
+    {
+      name: '动画Motion.dev',
+      path: 'motion',
+      Component: Motion,
+    },
     {
       name: '自动布局',
       path: 'auto-layout',
