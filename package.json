@@ -22,7 +22,7 @@
     "@grapecity-software/spread-sheets-shapes": "^17.1.4",
     "@grapecity-software/spread-sheets-slicers": "^17.1.4",
     "@grapecity-software/spread-sheets-tablesheet": "^17.1.4",
-    "axios": "^1.7.2",
+    "axios": "^1.7.4",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.12",
     "highlight.js": "^11.10.0",
