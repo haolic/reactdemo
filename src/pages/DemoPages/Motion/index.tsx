@@ -1,4 +1,4 @@
-import { motion, useMotionValue } from 'motion/react';
+import { motion } from 'motion/react';
 import { useState } from 'react';
 
 const Motion = () => {
@@ -33,4 +33,8 @@ const Motion = () => {
   );
 };
 
-export default Motion;
+export default () => (
+  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+    <Motion />
+  </motion.div>
+);
